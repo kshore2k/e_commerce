@@ -1,13 +1,14 @@
 package com.krisshore.ecommerce.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.krisshore.ecommerce.models.Cart;
@@ -32,33 +33,25 @@ public class UsersApi {
 		return userService.allUsers();
 	}
 	
-	// Create New
+	// Create New / Register
 	@RequestMapping(value="api/users", method=RequestMethod.POST)
 	public User create(
-			@RequestParam String first_name,
-			@RequestParam String last_name,
-			@RequestParam String email,
-			@RequestParam String password,
-			@RequestParam String city,
-			@RequestParam String state,
-			@RequestParam String country,
-			@RequestParam String zipcode,
-			@RequestParam String address,
-			@RequestParam String phone_number,
-			HttpSession session
-		) {
+					@RequestBody Map<String, Object> payload,
+					HttpSession session
+				) {
 		User newUser = new User(
-						first_name,
-						last_name,
-						email,
-						password,
-						city,
-						state,
-						country,
-						zipcode,
-						address,
-						phone_number
+						payload.get("first_name").toString(),
+						payload.get("last_name").toString(),
+						payload.get("email").toString(),
+						payload.get("password").toString(),
+						payload.get("city").toString(),
+						payload.get("state").toString(),
+						payload.get("country").toString(),
+						payload.get("zipcode").toString(),
+						payload.get("address").toString(),
+						payload.get("phone_number").toString()
 					);
+		
 		userService.createUser(newUser);
 		session.setAttribute("user_id", newUser.getId());
 		
@@ -79,29 +72,20 @@ public class UsersApi {
 	@RequestMapping(value="api/users/{id}", method=RequestMethod.PUT)
 	public User update(
 			@PathVariable("id") Long id,
-			@RequestParam String first_name,
-			@RequestParam String last_name,
-			@RequestParam String email,
-			@RequestParam String password,
-			@RequestParam String city,
-			@RequestParam String state,
-			@RequestParam String country,
-			@RequestParam String zipcode,
-			@RequestParam String address,
-			@RequestParam String phone_number
+			@RequestBody Map<String, Object> payload
 		) {
 		return userService.updateUser(
 								id,
-								first_name,
-								last_name,
-								email,
-								password,
-								city,
-								state,
-								country,
-								zipcode,
-								address,
-								phone_number
+								payload.get("first_name").toString(),
+								payload.get("last_name").toString(),
+								payload.get("email").toString(),
+								payload.get("password").toString(),
+								payload.get("city").toString(),
+								payload.get("state").toString(),
+								payload.get("country").toString(),
+								payload.get("zipcode").toString(),
+								payload.get("address").toString(),
+								payload.get("phone_number").toString()
 							);
 	}
 	

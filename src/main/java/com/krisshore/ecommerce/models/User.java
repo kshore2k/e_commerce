@@ -1,6 +1,7 @@
 package com.krisshore.ecommerce.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,14 +10,16 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 @Entity
@@ -35,11 +38,12 @@ public class User {
 	@Size(min=1,max=20)
 	private String email;
 	
-	@Size(min=1,max=20)
+	@Size(min=5, max=200)
 	private String password;
 	
-	@Transient
-    private String passwordConfirmation;
+	// ADD PASSWORD CONFIRMATION IN FRONT END VALIDATIONS
+//	@Transient
+//    private String passwordConfirmation;
 	
 	private String city;
 	private String state;
@@ -50,6 +54,10 @@ public class User {
 	
 	@OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Cart cart;
+	
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
+	@JsonBackReference
+	private List<Review> reviews;
 	
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -117,13 +125,13 @@ public class User {
 		this.password = password;
 	}
 
-	public String getPasswordConfirmation() {
-		return passwordConfirmation;
-	}
-
-	public void setPasswordConfirmation(String passwordConfirmation) {
-		this.passwordConfirmation = passwordConfirmation;
-	}
+//	public String getPasswordConfirmation() {
+//		return passwordConfirmation;
+//	}
+//
+//	public void setPasswordConfirmation(String passwordConfirmation) {
+//		this.passwordConfirmation = passwordConfirmation;
+//	}
 
 	public String getCity() {
 		return city;

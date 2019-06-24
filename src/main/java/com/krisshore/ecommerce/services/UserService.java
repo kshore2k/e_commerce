@@ -3,6 +3,7 @@ package com.krisshore.ecommerce.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.krisshore.ecommerce.models.User;
@@ -24,10 +25,12 @@ public class UserService {
 	
 	// Create a User
 	public User createUser(User user) {
+		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+		user.setPassword(hashed);
 		return userRepo.save(user);
 	}
 	
-	// Retrieve a User
+	// Retrieve a User by Id
 	public User findUser(Long id) {
 		Optional<User> optionalUser = userRepo.findById(id);
 		
@@ -35,6 +38,26 @@ public class UserService {
 			return optionalUser.get();
 		} else {
 			return null;
+		}
+	}
+	
+	// Retrieve a User by Email
+	public User findByEmail(String email) {
+		return userRepo.findByEmail(email);
+	}
+	
+	// Authenticate a User
+	public boolean authenticateUser(String email, String password) {
+		User user = userRepo.findByEmail(email);
+		
+		if(user == null) {
+			return false;
+		} else {
+			if(BCrypt.checkpw(password, user.getPassword())) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
 	

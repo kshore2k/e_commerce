@@ -39,11 +39,14 @@ public class Product {
 	@Size(min=10, max=200)
 	private String features;
 	
-	@Size(min=1, max=5)
+//	@Size(min=1, max=5)
 	private Integer rating;
 	
 	@Size(min=1, max=20)
 	private String item_number;
+	
+	@Size(min=1, max=20)
+	private String category;
 	
 	@OneToMany(mappedBy="product", fetch=FetchType.LAZY)
 	private List<Review> reviews;
@@ -52,9 +55,6 @@ public class Product {
 	@JoinColumn(name="cart_id")
 	private Cart cart;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="category_id")
-	private Category category;
 	
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -68,7 +68,7 @@ public class Product {
 	}
 
 
-	public Product(String title, String description, Double price, String image_url, String features, Integer rating, String item_number, Category category) {
+	public Product(String title, String description, Double price, String image_url, String features, Integer rating, String item_number, String category) {
 		this.title = title;
 		this.description = description;
 		this.price = price;
@@ -180,12 +180,12 @@ public class Product {
 	}
 
 
-	public Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
 
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 

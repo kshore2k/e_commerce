@@ -40,11 +40,21 @@ public class CartService {
 	}
 	
 	// Update a Cart
-	public Cart updateCart(Long id, List<Product> products) {
+	public Cart updateCart(Long id, String action, Product product) {
 		Optional<Cart> thisCart = cartRepo.findById(id);
 		
 		if(thisCart.isPresent()) {
 			Cart cartToUpdate = thisCart.get();
+			
+			List<Product> products = cartToUpdate.getProducts();
+			
+			if(action.equals("add")) {
+				products.add(product);
+			}
+			
+			if(action.equals("remove")) {
+				products.remove(product);
+			}
 			
 			cartToUpdate.setProducts(products);
 			
