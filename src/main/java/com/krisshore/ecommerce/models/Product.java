@@ -9,16 +9,18 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.JoinColumn;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="products")
@@ -51,9 +53,14 @@ public class Product {
 	@OneToMany(mappedBy="product", fetch=FetchType.LAZY)
 	private List<Review> reviews;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="cart_id")
-	private Cart cart;
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="products_carts",
+			joinColumns=@JoinColumn(name="product_id"),
+			inverseJoinColumns=@JoinColumn(name="cart_id")
+			)
+	@JsonBackReference
+	private List<Cart> carts;
 	
 	
 	@Column(updatable=false)
@@ -170,13 +177,13 @@ public class Product {
 	}
 
 
-	public Cart getCart() {
-		return cart;
+	public List<Cart> getCarts() {
+		return carts;
 	}
 
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
 	}
 
 

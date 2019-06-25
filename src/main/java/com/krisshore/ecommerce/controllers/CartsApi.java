@@ -12,14 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.krisshore.ecommerce.models.Cart;
 import com.krisshore.ecommerce.models.Product;
 import com.krisshore.ecommerce.services.CartService;
+import com.krisshore.ecommerce.services.ProductService;
 
 @RestController
 @RequestMapping("/")
 public class CartsApi {
 	private final CartService cartService;
+	private final ProductService productService;
 	
-	public CartsApi(CartService cartService) {
+	public CartsApi(CartService cartService, ProductService productService) {
 		this.cartService = cartService;
+		this.productService = productService;
 	}
 	
 	// Find All
@@ -41,11 +44,13 @@ public class CartsApi {
 					@PathVariable("id") Long id, 
 					@RequestBody Map<String, Object> payload
 				) {
-		if(payload.get("productToAdd") != null) {
-			Product productToAdd = (Product) payload.get("productToAdd");
+		Long productId = Long.parseLong(payload.get("productId").toString());
+		
+		if(payload.get("productToAdd").toString().equals("true")) {
+			Product productToAdd = productService.findProduct(productId);
 			return cartService.updateCart(id,"add", productToAdd);
 		} else {
-			Product productToRemove = (Product) payload.get("productToRemove");
+			Product productToRemove = productService.findProduct(productId);;
 			return cartService.updateCart(id, "remove", productToRemove);
 		}
 		

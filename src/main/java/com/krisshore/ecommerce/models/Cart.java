@@ -10,7 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -32,7 +33,12 @@ public class Cart {
 	@JsonBackReference
 	private User user;
 	
-	@OneToMany(mappedBy="cart", fetch=FetchType.LAZY)
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="products_carts",
+			joinColumns=@JoinColumn(name="cart_id"),
+			inverseJoinColumns=@JoinColumn(name="product_id")
+			)
 	private List<Product> products;
 	
 	@Column(updatable=false)
@@ -80,7 +86,7 @@ public class Cart {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-
+	
 
 	public Date getCreatedAt() {
 		return createdAt;

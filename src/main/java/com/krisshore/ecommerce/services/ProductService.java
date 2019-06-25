@@ -48,7 +48,7 @@ public class ProductService {
 						Integer rating,
 						String item_number,
 						String category
-			) {
+					) {
 		Optional<Product> thisProduct = productRepo.findById(id);
 		
 		if(thisProduct.isPresent()) {

@@ -50,4 +50,24 @@ public class ReviewsApi {
 								);
 		return reviewService.createReview(newReview);
 	}
+	
+	// Find One
+	@RequestMapping("api/products/reviews/{id}")
+	public Review find(@PathVariable("id") Long id) {
+		Review oneReview = reviewService.findReview(id);
+		return oneReview;
+	}
+	
+	// Edit One
+	@RequestMapping(value="api/products/reviews/{id}", method=RequestMethod.PUT)
+	public Review update(@PathVariable("id") Long id, @RequestBody Map<String, Object> payload) {
+		return reviewService.updateReview(id, payload.get("description").toString());
+	}
+	
+	// Delete One
+	@RequestMapping(value="api/products/reviews/{id}", method=RequestMethod.DELETE)
+	public void destroy(@PathVariable("id") Long id) {
+		reviewService.deleteReview(id);
+		return;
+	}
 }
