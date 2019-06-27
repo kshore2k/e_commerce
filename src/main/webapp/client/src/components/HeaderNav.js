@@ -17,13 +17,17 @@ class HeaderNav extends Component {
                         <p>FREE SHIPPING ON ORDERS OVER $49*</p>
                     </div>
                     <div id="container-navigation">
-                        <Link className="test">TENTS</Link>
-                        <Link className="test">SLEEPING BAGS</Link>
-                        <Link className="test">BACKPACKS</Link>
-                        <Link className="test">MEN'S APPAREL</Link>
-                        <Link className="test">WOMEN'S APPAREL</Link>
-                        <Link className="test">COLLECTIONS</Link>
-                        <Link className="test">ABOUT US</Link>
+                        <Link className="link">TENTS</Link>
+                        <Link className="link">SLEEPING BAGS</Link>
+                        <Link className="link">BACKPACKS</Link>
+                        <Link className="link">MEN'S APPAREL</Link>
+                        <Link className="link">WOMEN'S APPAREL</Link>
+                        <Link className="link">COLLECTIONS</Link>
+                        <Link className="link">ABOUT US</Link>
+
+                        <form id="search-bar">
+                            <input type="text" placeholder="Search"/>
+                        </form>
                     </div>
                 </div>
                 
