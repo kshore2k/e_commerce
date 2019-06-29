@@ -18,7 +18,7 @@ class HeaderNav extends Component {
                 <div id="container-menu">
                     <div id="container-login">
                         <p>FREE SHIPPING ON ORDERS OVER $49*</p>
-                        <Link id="login-link">
+                        <Link to="/login" id="login-link">
                             <img id="user-icon" src={userIcon} alt="user"/>
                         </Link>
                         <Link id="cart-link">

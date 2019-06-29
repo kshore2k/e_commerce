@@ -7,6 +7,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 //components
 import HeaderNav from './HeaderNav';
 import Home from './Home';
+import Login from './Login';
 import Product from './Product';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
                 <BrowserRouter>
                 <HeaderNav />
                     <Route exact path="/" component={Home} />
+                    <Route path="/login" component={Login} />
                     <Route path="/product" component={Product} />
                 </BrowserRouter>
             </Provider>

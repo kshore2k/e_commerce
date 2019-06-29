@@ -61,6 +61,21 @@ public class UsersApi {
 		return newUser;
 	}
 	
+	// Login / Authenticate
+	@RequestMapping(value="api/login", method=RequestMethod.POST)
+	public User login(
+				@RequestBody Map<String, Object> payload,
+				HttpSession session
+			) {
+		String email = payload.get("email").toString();
+		String password = payload.get("password").toString();
+		System.out.println(userService.authenticateUser(email, password));
+		User thisUser = userService.authenticateUser(
+											email, 
+											password) ? userService.findByEmail(email) : null;
+		return thisUser;
+	}
+	
 	// Find One
 	@RequestMapping("api/users/{id}")
 	public User find(@PathVariable("id") Long id) {
