@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './HeaderNav.css';
 import logo from '../static/logo-w-txt.png';
+import userIcon from '../static/user.png';
+import cartIcon from '../static/cart.png'
 
 class HeaderNav extends Component {
     
@@ -16,6 +18,12 @@ class HeaderNav extends Component {
                 <div id="container-menu">
                     <div id="container-login">
                         <p>FREE SHIPPING ON ORDERS OVER $49*</p>
+                        <Link id="login-link">
+                            <img id="user-icon" src={userIcon} alt="user"/>
+                        </Link>
+                        <Link id="cart-link">
+                            <img id="cart-icon" src={cartIcon} alt="cart"/>
+                        </Link>
                     </div>
                     <div id="container-navigation">
                         <Link to="/product" className="link">TENTS</Link>

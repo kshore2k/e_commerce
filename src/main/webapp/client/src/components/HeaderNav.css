@@ -35,6 +35,7 @@
 
 #container-login {
     /* background-color: white; */
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -49,6 +50,27 @@
     font-weight: lighter;
     color: #838282;
     margin-left: 2.5%;
+}
+
+#container-login > img, #login-link, #cart-link {
+    position: absolute;
+    width: auto;
+}
+
+#container-login > #login-link {
+    right: 85px;
+}
+
+#user-icon {
+    height: 25px;
+}
+
+#container-login > #cart-link {
+    right: 40px;
+}
+
+#cart-icon {
+    height: 37px;
 }
 
 #container-navigation {

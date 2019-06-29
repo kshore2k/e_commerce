@@ -53,10 +53,10 @@ class Slideshow extends Component {
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        if(slides[this.slideIndex-1]) {
+        if (slides[this.slideIndex-1]) {
             slides[this.slideIndex-1].style.display = "block"; 
         }
-        if(dots[this.slideIndex-1]) {
+        if (dots[this.slideIndex-1]) {
             dots[this.slideIndex-1].className += " active";
         }
         
