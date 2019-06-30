@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions/loginActions';
 
@@ -8,7 +9,8 @@ class Login extends Component {
 
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            error: ""
         };
     };
 
@@ -36,40 +38,43 @@ class Login extends Component {
     };
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.user) {
-            this.me = nextProps.user.email;
-        } else {
-            this.me = "";
+        if(nextProps.error) {
+            this.setState({ error: nextProps.error });
         }
-    }
+    };
 
     render() {
-        return (
-            <div>
-                <form onSubmit={this.onFormSubmit}>
-                    Email:<input
-                            type="text"
-                            value={this.state.email}
-                            name="email"
-                            onChange={this.onFormInput}
-                            />
-                    Password:<input
-                            type="text"
-                            value={this.state.password}
-                            name="password"
-                            onChange={this.onFormInput}
-                            />
+        if(!this.props.isLoggedIn){
+            return (
+                <div>
+                    <form onSubmit={this.onFormSubmit}>
+                        Email:<input
+                                type="text"
+                                value={this.state.email}
+                                name="email"
+                                onChange={this.onFormInput}
+                                />
+                        Password:<input
+                                type="text"
+                                value={this.state.password}
+                                name="password"
+                                onChange={this.onFormInput}
+                                />
 
-                    <button type="submit">Log In</button>
-                </form>
-                {this.me}
-            </div>
-        );
+                        <button type="submit">Log In</button>
+                    </form>
+                    {this.state.error}
+                </div>
+            );
+        } else {
+            return <Redirect to="/account"/>
+        }
     };
 };
 
 const mapStateToProps = state => ({
-    user: state.user.details
-})
+    error: state.user.error,
+    isLoggedIn: state.user.loggedIn
+});
 
 export default connect(mapStateToProps, { login })(Login);

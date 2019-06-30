@@ -67,15 +67,15 @@ class Slideshow extends Component {
 
         const slideImages = imageArr.map((imageSrc,idx) => {
             return (
-                <div className="mySlides fade">
-                    <img src={imageSrc} key={idx} alt="Camping"/>
+                <div className="mySlides fade" key={idx}>
+                    <img src={imageSrc} alt="Camping"/>
                 </div>
             );
         });
 
         const imageDots = imageArr.map((imgForDot,idx) => {
             return (
-                <span className="dot" onClick={() => this.currentSlide(idx+1)}></span>
+                <span className="dot" key={idx} onClick={() => this.currentSlide(idx+1)}></span>
             );
         });
 

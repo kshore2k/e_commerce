@@ -1,4 +1,4 @@
-import { LOGIN_USER } from './types';
+import { LOGIN_USER, INVALID_USER } from './types';
 
 export const login = (userData) => dispatch => {
     fetch('/api/login', {
@@ -9,10 +9,16 @@ export const login = (userData) => dispatch => {
         body: JSON.stringify(userData)
     })
         .then(res => res.json())
-        .then(user =>
+        .then(user => 
             dispatch({
                 type: LOGIN_USER,
                 payload: user
             })
-        );
+        )
+        .catch(err => 
+            dispatch({
+                type: INVALID_USER,
+                payload: "Invalid Email or Password"
+            })
+        )
 };

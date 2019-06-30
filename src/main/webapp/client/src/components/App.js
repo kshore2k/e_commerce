@@ -9,6 +9,8 @@ import HeaderNav from './HeaderNav';
 import Home from './Home';
 import Login from './Login';
 import Product from './Product';
+import UserAccount from './UserAccount';
+import RequireAuth from './RequireAuth';
 
 class App extends Component {
 
@@ -19,6 +21,7 @@ class App extends Component {
                 <HeaderNav />
                     <Route exact path="/" component={Home} />
                     <Route path="/login" component={Login} />
+                    <Route path="/account" component={RequireAuth(UserAccount)} />
                     <Route path="/product" component={Product} />
                 </BrowserRouter>
             </Provider>
