@@ -16,19 +16,19 @@ class Login extends Component {
     };
 
     componentDidMount() {
-        const errorDiv = document.getElementById('login-error');
-        if(this.state.error === "") {
-            errorDiv.style.display = 'none';
-        } 
-        
-    }
+        if(document.getElementById('login-error')) {
+            this.errorDiv = document.getElementById('login-error');
+            this.errorDiv.style.display = 'none';
+        }
+    };
     
     componentDidUpdate() {
-        const errorDiv = document.getElementById('login-error');
-        if(this.state.error !== "") {
-            errorDiv.style.display = '';
-        } 
-    }
+        if(this.errorDiv) {
+            if(this.state.error !== "") {
+                this.errorDiv.style.display = '';
+            } 
+        }
+    };
 
     onFormInput = (event) => {
         const { target: { name, value } } = event;
@@ -45,12 +45,6 @@ class Login extends Component {
         };
 
         this.props.login(user);
-
-        this.setState({
-            email: "",
-            password: ""
-        });
-
     };
 
     componentWillReceiveProps(nextProps) {
@@ -60,14 +54,11 @@ class Login extends Component {
     };
 
     render() {
-        
-            
-        
         if(!this.props.isLoggedIn) {
             return (
                 <div id="container-main-login-reg">
                     <p id="nav-history">
-                        <Link id="home-link">HOME</Link>
+                        <Link to="/" id="home-link">HOME</Link>
                         <span> ></span> LOG IN
                     </p>
 
