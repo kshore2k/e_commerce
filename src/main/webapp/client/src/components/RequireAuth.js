@@ -5,13 +5,13 @@ export default function(ComposedComponent) {
     class Authentication extends Component {
   
         componentWillMount() {
-            if (!this.props.isLoggedIn) {
+            if(!this.props.isLoggedIn) {
                 this.props.history.push('/login');
             }
         };
   
         componentWillUpdate(nextProps) {
-            if (!nextProps.isLoggedIn) {
+            if(!nextProps.isLoggedIn) {
                 this.props.history.push('/login');
             }
         };

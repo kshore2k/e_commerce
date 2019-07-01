@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions/loginActions';
+import './Login.css';
 
 class Login extends Component {
     constructor(props) {
@@ -44,10 +45,34 @@ class Login extends Component {
     };
 
     render() {
-        if(!this.props.isLoggedIn){
+        if(!this.props.isLoggedIn) {
             return (
-                <div>
-                    <form onSubmit={this.onFormSubmit}>
+                <div id="container-main-login-reg">
+                    <p id="nav-history">
+                        <Link id="home-link">HOME</Link>
+                        <span> ></span> LOG IN
+                    </p>
+
+                    <div id="container-sub-login-reg">
+                        <div id="registration">
+                            <h1>CREATE A NEW ACCOUNT</h1>
+                            <p>Create an account with us and you'll be able to:</p>
+                            <ul>
+                                <li>Check out faster</li>
+                                <li>Save multiple shipping addresses</li>
+                                <li>Access your order history</li>
+                                <li>Track new orders</li>
+                                <li>Save items to your wish list</li>
+                            </ul>
+                            <button>CLICK HERE TO CREATE A NEW ACCOUNT</button>
+                        </div>
+                        <div id="login"></div>
+                    </div>
+
+                    
+
+                    
+                    {/* <form onSubmit={this.onFormSubmit}>
                         Email:<input
                                 type="text"
                                 value={this.state.email}
@@ -63,7 +88,7 @@ class Login extends Component {
 
                         <button type="submit">Log In</button>
                     </form>
-                    {this.state.error}
+                    {this.state.error} */}
                 </div>
             );
         } else {
