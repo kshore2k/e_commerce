@@ -15,6 +15,21 @@ class Login extends Component {
         };
     };
 
+    componentDidMount() {
+        const errorDiv = document.getElementById('login-error');
+        if(this.state.error === "") {
+            errorDiv.style.display = 'none';
+        } 
+        
+    }
+    
+    componentDidUpdate() {
+        const errorDiv = document.getElementById('login-error');
+        if(this.state.error !== "") {
+            errorDiv.style.display = '';
+        } 
+    }
+
     onFormInput = (event) => {
         const { target: { name, value } } = event;
 
@@ -45,6 +60,9 @@ class Login extends Component {
     };
 
     render() {
+        
+            
+        
         if(!this.props.isLoggedIn) {
             return (
                 <div id="container-main-login-reg">
@@ -66,29 +84,33 @@ class Login extends Component {
                             </ul>
                             <button>CLICK HERE TO CREATE A NEW ACCOUNT</button>
                         </div>
-                        <div id="login"></div>
+                        <div id="login">
+                            <h1>LOG IN TO YOUR ACCOUNT</h1>
+                            <div id="login-error">
+                                <p>{this.state.error}</p>
+                            </div>
+                            <form onSubmit={this.onFormSubmit} id="login-form">
+                                <label for="email">Email Address</label>
+                                <input
+                                    type="text"
+                                    value={this.state.email}
+                                    name="email"
+                                    onChange={this.onFormInput}
+                                />
+                                <br/>
+                                <label for="password">Password</label>
+                                <input
+                                    type="text"
+                                    value={this.state.password}
+                                    name="password"
+                                    onChange={this.onFormInput}
+                                />
+                                <br/>
+                                <button type="submit">LOG IN</button>
+                                <Link id="forgot-password">Forgot your password?</Link>
+                            </form>
+                        </div>
                     </div>
-
-                    
-
-                    
-                    {/* <form onSubmit={this.onFormSubmit}>
-                        Email:<input
-                                type="text"
-                                value={this.state.email}
-                                name="email"
-                                onChange={this.onFormInput}
-                                />
-                        Password:<input
-                                type="text"
-                                value={this.state.password}
-                                name="password"
-                                onChange={this.onFormInput}
-                                />
-
-                        <button type="submit">Log In</button>
-                    </form>
-                    {this.state.error} */}
                 </div>
             );
         } else {

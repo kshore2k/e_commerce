@@ -18,7 +18,7 @@ export const login = (userData) => dispatch => {
         .catch(err => 
             dispatch({
                 type: INVALID_USER,
-                payload: "Invalid Email or Password"
+                payload: "Your email address or password is incorrect. Please try again. If you've forgotten your sign in details, just click the 'Forgot your password?' link below."
             })
         )
 };
