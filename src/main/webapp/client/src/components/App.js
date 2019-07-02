@@ -11,6 +11,7 @@ import Login from './Login';
 import Product from './Product';
 import UserAccount from './UserAccount';
 import RequireAuth from './RequireAuth';
+import Footer from './Footer';
 
 class App extends Component {
 
@@ -23,6 +24,7 @@ class App extends Component {
                     <Route path="/login" component={Login} />
                     <Route path="/account" component={RequireAuth(UserAccount)} />
                     <Route path="/product" component={Product} />
+                <Footer />
                 </BrowserRouter>
             </Provider>
         );

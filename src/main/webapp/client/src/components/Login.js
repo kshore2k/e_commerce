@@ -81,20 +81,22 @@ class Login extends Component {
                                 <p>{this.state.error}</p>
                             </div>
                             <form onSubmit={this.onFormSubmit} id="login-form">
-                                <label for="email">Email Address</label>
+                                <label htmlFor="email">Email Address</label>
                                 <input
-                                    type="text"
+                                    type="email"
                                     value={this.state.email}
                                     name="email"
                                     onChange={this.onFormInput}
+                                    required
                                 />
                                 <br/>
-                                <label for="password">Password</label>
+                                <label htmlFor="password">Password</label>
                                 <input
                                     type="text"
                                     value={this.state.password}
                                     name="password"
                                     onChange={this.onFormInput}
+                                    required
                                 />
                                 <br/>
                                 <button type="submit">LOG IN</button>
