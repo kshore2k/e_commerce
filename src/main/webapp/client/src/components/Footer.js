@@ -31,20 +31,20 @@ class Footer extends Component {
         alert("Thanks for subscribing to our newsletter! " + this.state.email);
 
         this.setState({ email: "" });
-    }
+    };
 
     hover = (event) => {
         let element = event.target;
         let image = element.getAttribute('hover');
         element.setAttribute('src', image);
         
-    }
+    };
       
     unhover = (event) => {
         let element = event.target;
         let image = element.getAttribute('initial');
         element.setAttribute('src', image);
-    }
+    };
 
     render() {
         return (

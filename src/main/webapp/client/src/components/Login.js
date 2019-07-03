@@ -73,7 +73,11 @@ class Login extends Component {
                                 <li>Track new orders</li>
                                 <li>Save items to your wish list</li>
                             </ul>
-                            <button>CLICK HERE TO CREATE A NEW ACCOUNT</button>
+                            <Link to="/register">
+                                <button  id="button-register">
+                                    CLICK HERE TO CREATE A NEW ACCOUNT
+                                </button>
+                            </Link>
                         </div>
                         <div id="login">
                             <h1>LOG IN TO YOUR ACCOUNT</h1>
