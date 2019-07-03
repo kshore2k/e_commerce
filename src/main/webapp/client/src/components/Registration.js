@@ -8,8 +8,17 @@ class Registration extends Component {
         super(props);
 
         this.state = {
+            first_name: "",
+            last_name: "",
+            country: "United States",
+            zipcode: "",
+            city: "",
+            state: "",
+            address: "",
+            phone_number: "",
             email: "",
             password: "",
+            passwordConfirm: "",
             error: ""
         };
     };
@@ -23,10 +32,9 @@ class Registration extends Component {
     onFormSubmit = (event) => {
         event.preventDefault();
 
-        const user = {
-            email: this.state.email,
-            password: this.state.password
-        };
+        const newUser = Object.assign({}, this.state, { passwordConfirm: undefined, error: undefined });
+
+        console.log(newUser);
     };
 
     render() {
@@ -38,7 +46,7 @@ class Registration extends Component {
                         <span> ></span> CREATE ACCOUNT
                     </p>
 
-                    <div id="container-sub-reg">
+                    <div id="title-details">
 
                         <h1>CREATE AN ACCOUNT</h1>
 
@@ -46,12 +54,64 @@ class Registration extends Component {
                             <span> Rainier Designs </span>
                             and save multiple addresses in your address book.
                         </p>
-                        
+
+                    </div>
+
+                    <div id="container-sub-reg">
+
                         <div id="shipping">
 
                             <h1><span>-</span>Shipping Details</h1>
 
                             <p>Enter the name and address you'd like us to ship your order to.</p>
+
+                            <form className="registration-form" onSubmit={this.onFormSubmit}>
+                                <label htmlFor="first_name">
+                                    <span>*</span>First Name:
+                                </label>
+                                <input type="text" name="first_name" value={this.state.first_name} onChange={this.onFormInput}/>
+
+                                <label htmlFor="last_name">
+                                    <span>*</span>Last Name:
+                                </label>
+                                <input type="text" name="last_name" value={this.state.last_name} onChange={this.onFormInput}/>
+
+                                <label htmlFor="country">
+                                    <span>*</span>Country:
+                                </label>
+                                <select name="country" value={this.state.country} onChange={this.onFormInput}>
+                                    <option value="United States">United States</option>
+                                    <option value="Turkey">Turkey</option>
+                                </select>
+
+                                <label htmlFor="zipcode">
+                                    <span>*</span>Zip/Postcode:
+                                </label>
+                                <input type="text" name="zipcode" value={this.state.zipcode} onChange={this.onFormInput}/>
+
+                                <label htmlFor="city">
+                                    <span>*</span>City:
+                                </label>
+                                <input type="text" name="city" value={this.state.city} onChange={this.onFormInput}/>
+
+                                <label htmlFor="state">
+                                    <span>*</span>State:
+                                </label>
+                                <select value={this.state.state} onChange={this.onFormInput}>
+                                    <option value="">Choose a State</option>
+                                </select>
+
+                                <label htmlFor="address">
+                                    <span>*</span>Address:
+                                </label>
+                                <input type="text" name="address" value={this.state.address} onChange={this.onFormInput}/>
+
+                                <label htmlFor="phone_number">
+                                    <span>*</span>Phone Number:
+                                </label>
+                                <input type="text" name="phone_number" value={this.state.phone_number} onChange={this.onFormInput}/>
+                                
+                            </form>
 
                         </div>
                         <div id="personal-captcha">
@@ -61,6 +121,23 @@ class Registration extends Component {
                                 <h1><span>-</span>Personal Details</h1>
 
                                 <p>Enter your email address and password to create your account.</p>
+
+                                <form className="registration-form">
+                                    <label htmlFor="email">
+                                        <span>*</span>Email Address:
+                                    </label>
+                                    <input type="text" name="email" value={this.state.email} onChange={this.onFormInput}/>
+
+                                    <label htmlFor="password">
+                                        <span>*</span>Password:
+                                    </label>
+                                    <input type="text" autoComplete="off" name="password" value={this.state.password} onChange={this.onFormInput}/>
+
+                                    <label htmlFor="passwordConfirm">
+                                        <span>*</span>Confirm Password:
+                                    </label>
+                                    <input type="text" autoComplete="off" name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.onFormInput}/>
+                                </form>
 
                             </div>
 
