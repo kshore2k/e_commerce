@@ -34,7 +34,7 @@ public class UsersApi {
 	}
 	
 	// Create New / Register
-	@RequestMapping(value="api/users", method=RequestMethod.POST)
+	@RequestMapping(value="api/register", method=RequestMethod.POST)
 	public User create(
 					@RequestBody Map<String, Object> payload,
 					HttpSession session

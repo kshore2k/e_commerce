@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import { register } from '../actions/loginActions';
 import './Registration.css';
 
 class Registration extends Component {
@@ -34,7 +35,7 @@ class Registration extends Component {
 
         const newUser = Object.assign({}, this.state, { passwordConfirm: undefined, error: undefined });
 
-        console.log(newUser);
+        this.props.register(newUser);
     };
 
     render() {
@@ -97,8 +98,9 @@ class Registration extends Component {
                                 <label htmlFor="state">
                                     <span>*</span>State:
                                 </label>
-                                <select value={this.state.state} onChange={this.onFormInput}>
+                                <select name="state" value={this.state.state} onChange={this.onFormInput}>
                                     <option value="">Choose a State</option>
+                                    <option value="Washington">Washington</option>
                                 </select>
 
                                 <label htmlFor="address">
@@ -163,4 +165,8 @@ class Registration extends Component {
     };
 };
 
-export default Registration;
+const mapStateToProps = state => ({
+    isLoggedIn: state.user.loggedIn
+});
+
+export default connect(mapStateToProps, { register })(Registration);

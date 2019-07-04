@@ -1,4 +1,4 @@
-import { LOGIN_USER, INVALID_USER } from './types';
+import { LOGIN_USER, INVALID_USER, REGISTER_USER } from './types';
 
 export const login = (userData) => dispatch => {
     fetch('/api/login', {
@@ -22,3 +22,20 @@ export const login = (userData) => dispatch => {
             })
         )
 };
+
+export const register = (userData) => dispatch => {
+    fetch('/api/register', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+    })
+        .then(res => res.json())
+        .then(user => 
+            dispatch({
+                type: REGISTER_USER,
+                payload: user
+            })
+        )
+}
