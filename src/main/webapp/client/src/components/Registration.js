@@ -143,7 +143,14 @@ class Registration extends Component {
 
                             <div id="captcha">
                                 <h1><span>-</span>Security Question</h1>
+
+                                <div class="g-recaptcha" data-sitekey="6LfI_qsUAAAAAAkvUx5sDzram_dcDWlEh7cJDylu"></div>
+
+                                <input type="checkbox" defaultChecked="true"/>
+                                <p>Sign up for the Rainier Designs newsletter</p>
                             </div>
+
+                            <button id="button-create" onClick={this.onFormSubmit}>CREATE MY ACCOUNT</button>
 
                         </div>
                         
