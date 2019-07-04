@@ -33,6 +33,19 @@ class Registration extends Component {
     onFormSubmit = (event) => {
         event.preventDefault();
 
+        const form1 = document.getElementById("reg-personal");
+        const form2 = document.getElementById("reg-email");
+
+        if(!form1.reportValidity() || !form2.reportValidity()) {  // Checks if required fields are valid
+            return;
+        }
+
+        const { password, passwordConfirm } = this.state;
+
+        if(password !== passwordConfirm) {
+            return alert("PASSWORDS DON'T MATCH");
+        }
+
         const newUser = Object.assign({}, this.state, { passwordConfirm: undefined, error: undefined });
 
         this.props.register(newUser);
@@ -66,16 +79,16 @@ class Registration extends Component {
 
                             <p>Enter the name and address you'd like us to ship your order to.</p>
 
-                            <form className="registration-form" onSubmit={this.onFormSubmit}>
+                            <form id="reg-personal" className="registration-form" onSubmit={this.onFormSubmit}>
                                 <label htmlFor="first_name">
                                     <span>*</span>First Name:
                                 </label>
-                                <input type="text" name="first_name" value={this.state.first_name} onChange={this.onFormInput}/>
+                                <input type="text" name="first_name" value={this.state.first_name} onChange={this.onFormInput} required/>
 
                                 <label htmlFor="last_name">
                                     <span>*</span>Last Name:
                                 </label>
-                                <input type="text" name="last_name" value={this.state.last_name} onChange={this.onFormInput}/>
+                                <input type="text" name="last_name" value={this.state.last_name} onChange={this.onFormInput} required/>
 
                                 <label htmlFor="country">
                                     <span>*</span>Country:
@@ -88,17 +101,17 @@ class Registration extends Component {
                                 <label htmlFor="zipcode">
                                     <span>*</span>Zip/Postcode:
                                 </label>
-                                <input type="text" name="zipcode" value={this.state.zipcode} onChange={this.onFormInput}/>
+                                <input type="text" name="zipcode" value={this.state.zipcode} onChange={this.onFormInput} required/>
 
                                 <label htmlFor="city">
                                     <span>*</span>City:
                                 </label>
-                                <input type="text" name="city" value={this.state.city} onChange={this.onFormInput}/>
+                                <input type="text" name="city" value={this.state.city} onChange={this.onFormInput} required/>
 
                                 <label htmlFor="state">
                                     <span>*</span>State:
                                 </label>
-                                <select name="state" value={this.state.state} onChange={this.onFormInput}>
+                                <select name="state" value={this.state.state} onChange={this.onFormInput} required>
                                     <option value="">Choose a State</option>
                                     <option value="Washington">Washington</option>
                                 </select>
@@ -106,12 +119,12 @@ class Registration extends Component {
                                 <label htmlFor="address">
                                     <span>*</span>Address:
                                 </label>
-                                <input type="text" name="address" value={this.state.address} onChange={this.onFormInput}/>
+                                <input type="text" name="address" value={this.state.address} onChange={this.onFormInput} required/>
 
                                 <label htmlFor="phone_number">
                                     <span>*</span>Phone Number:
                                 </label>
-                                <input type="text" name="phone_number" value={this.state.phone_number} onChange={this.onFormInput}/>
+                                <input type="text" name="phone_number" value={this.state.phone_number} onChange={this.onFormInput} required/>
                                 
                             </form>
 
@@ -124,21 +137,21 @@ class Registration extends Component {
 
                                 <p>Enter your email address and password to create your account.</p>
 
-                                <form className="registration-form">
+                                <form id="reg-email" className="registration-form">
                                     <label htmlFor="email">
                                         <span>*</span>Email Address:
                                     </label>
-                                    <input type="text" name="email" value={this.state.email} onChange={this.onFormInput}/>
+                                    <input type="email" name="email" value={this.state.email} onChange={this.onFormInput} required/>
 
                                     <label htmlFor="password">
                                         <span>*</span>Password:
                                     </label>
-                                    <input type="text" autoComplete="off" name="password" value={this.state.password} onChange={this.onFormInput}/>
+                                    <input type="password" autoComplete="off" name="password" value={this.state.password} onChange={this.onFormInput} required/>
 
                                     <label htmlFor="passwordConfirm">
                                         <span>*</span>Confirm Password:
                                     </label>
-                                    <input type="text" autoComplete="off" name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.onFormInput}/>
+                                    <input type="password" autoComplete="off" name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.onFormInput} required/>
                                 </form>
 
                             </div>
@@ -146,7 +159,7 @@ class Registration extends Component {
                             <div id="captcha">
                                 <h1><span>-</span>Security Question</h1>
 
-                                <div class="g-recaptcha" data-sitekey="6LfI_qsUAAAAAAkvUx5sDzram_dcDWlEh7cJDylu"></div>
+                                <div className="g-recaptcha" data-sitekey="6LfI_qsUAAAAAAkvUx5sDzram_dcDWlEh7cJDylu"></div>
 
                                 <input type="checkbox" defaultChecked="true"/>
                                 <p>Sign up for the Rainier Designs newsletter</p>
