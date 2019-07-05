@@ -50,6 +50,9 @@ public class Product {
 	@Size(min=1, max=20)
 	private String category;
 	
+	@Size(min=1, max=200)
+	private String collection;
+	
 	@OneToMany(mappedBy="product", fetch=FetchType.LAZY)
 	private List<Review> reviews;
 	
@@ -75,7 +78,7 @@ public class Product {
 	}
 
 
-	public Product(String title, String description, Double price, String image_url, String features, Integer rating, String item_number, String category) {
+	public Product(String title, String description, Double price, String image_url, String features, Integer rating, String item_number, String category, String collection) {
 		this.title = title;
 		this.description = description;
 		this.price = price;
@@ -84,6 +87,7 @@ public class Product {
 		this.rating = rating;
 		this.item_number = item_number;
 		this.category = category;
+		this.collection = collection;
 	}
 
 
@@ -194,6 +198,15 @@ public class Product {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+	
+	public String getCollection() {
+		return collection;
+	}
+
+
+	public void setCollection(String collection) {
+		this.collection = collection;
 	}
 
 

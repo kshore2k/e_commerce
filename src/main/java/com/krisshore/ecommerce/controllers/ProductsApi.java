@@ -38,7 +38,8 @@ public class ProductsApi {
 								payload.get("features").toString(),
 								Integer.parseInt(payload.get("rating").toString()),
 								payload.get("item_number").toString(),
-								payload.get("category").toString()
+								payload.get("category").toString(),
+								payload.get("collection").toString()
 							);
 		return productService.createProduct(newProduct);
 	}
@@ -62,7 +63,8 @@ public class ProductsApi {
 									payload.get("features").toString(),
 									Integer.parseInt(payload.get("rating").toString()),
 									payload.get("item_number").toString(),
-									payload.get("category").toString()
+									payload.get("category").toString(),
+									payload.get("collection").toString()
 								);
 	}
 	

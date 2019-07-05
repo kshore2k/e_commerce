@@ -47,7 +47,8 @@ public class ProductService {
 						String features,
 						Integer rating,
 						String item_number,
-						String category
+						String category,
+						String collection
 					) {
 		Optional<Product> thisProduct = productRepo.findById(id);
 		
@@ -62,6 +63,7 @@ public class ProductService {
 			productToUpdate.setRating(rating);
 			productToUpdate.setItem_number(item_number);
 			productToUpdate.setCategory(category);
+			productToUpdate.setCollection(collection);
 			
 			return productRepo.save(productToUpdate);
 		} else {
