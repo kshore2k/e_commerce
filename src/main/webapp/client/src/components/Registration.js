@@ -24,6 +24,15 @@ class Registration extends Component {
         };
     };
 
+    componentDidMount() {
+        const script = document.createElement("script");
+
+        script.src = "https://www.google.com/recaptcha/api.js";
+        script.async = true;
+
+        document.body.appendChild(script);
+    }
+
     onFormInput = (event) => {
         const { target: { name, value } } = event;
 

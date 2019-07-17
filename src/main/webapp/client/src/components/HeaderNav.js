@@ -21,18 +21,18 @@ class HeaderNav extends Component {
                         <Link to="/login" id="login-link">
                             <img id="user-icon" src={userIcon} alt="user"/>
                         </Link>
-                        <Link id="cart-link">
+                        <Link to="" id="cart-link">
                             <img id="cart-icon" src={cartIcon} alt="cart"/>
                         </Link>
                     </div>
                     <div id="container-navigation">
-                        <Link to="/product" className="link">TENTS</Link>
-                        <Link className="link">SLEEPING BAGS</Link>
-                        <Link className="link">BACKPACKS</Link>
-                        <Link className="link">MEN'S APPAREL</Link>
-                        <Link className="link">WOMEN'S APPAREL</Link>
-                        <Link className="link">COLLECTIONS</Link>
-                        <Link className="link">ABOUT US</Link>
+                        <Link to="/collection/tents" className="link">TENTS</Link>
+                        <Link to="/collection/sleeping-bags" className="link">SLEEPING BAGS</Link>
+                        <Link to="" className="link">BACKPACKS</Link>
+                        <Link to="" className="link">MEN'S APPAREL</Link>
+                        <Link to="" className="link">WOMEN'S APPAREL</Link>
+                        <Link to="" className="link">COLLECTIONS</Link>
+                        <Link to="" className="link">ABOUT US</Link>
 
                         <form id="search-bar">
                             <input type="text" placeholder="Search"/>

@@ -44,11 +44,18 @@ public class ProductsApi {
 		return productService.createProduct(newProduct);
 	}
 	
-	// Find One
+	// Find One by Id
 	@RequestMapping("api/products/{id}")
 	public Product find(@PathVariable("id") Long id) {
 		Product oneProduct = productService.findProduct(id);
 		return oneProduct;
+	}
+	
+	// Find all via Collection type 
+	@RequestMapping("api/products/collection/{type}")
+	public List<Product> findCollection(@PathVariable("type") String collection) {
+		List<Product> products = productService.productCollection(collection);
+		return products;
 	}
 	
 	// Edit One

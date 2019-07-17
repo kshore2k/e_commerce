@@ -27,10 +27,10 @@ class ProductFilter extends Component {
 
                     <div className="slider closed" id="slider1">
                         <ul className="sub-nav">
-                            <li><Link className="filter-link">1 Person tents</Link></li>
-                            <li><Link className="filter-link">2 Person tents</Link></li>
-                            <li><Link className="filter-link">3 Person tents</Link></li>
-                            <li><Link className="filter-link">4 Person tents</Link></li>
+                            <li><Link to="" className="filter-link">1 Person tents</Link></li>
+                            <li><Link to="" className="filter-link">2 Person tents</Link></li>
+                            <li><Link to="" className="filter-link">3 Person tents</Link></li>
+                            <li><Link to="" className="filter-link">4 Person tents</Link></li>
                         </ul>
                     </div>
 

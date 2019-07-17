@@ -37,6 +37,11 @@ public class ProductService {
 		}
 	}
 	
+	// Retrieve a product by Collection
+	public List<Product> productCollection(String collection) {
+		return productRepo.findByCollection(collection);
+	}
+	
 	// Update a Product
 	public Product updateProduct(
 						Long id,

@@ -106,26 +106,26 @@ class Footer extends Component {
                         </div>
                         <div id="navbox-links">
                             <h1>Products</h1>
-                            <p><Link id="footer-link">Tents</Link></p>
-                            <p><Link id="footer-link">Sleeping Bags</Link></p>
-                            <p><Link id="footer-link">Backpacks</Link></p>
-                            <p><Link id="footer-link">Men's Apparel</Link></p>
-                            <p><Link id="footer-link">Women's Apparel</Link></p>
+                            <p><Link to="" id="footer-link">Tents</Link></p>
+                            <p><Link to="" id="footer-link">Sleeping Bags</Link></p>
+                            <p><Link to="" id="footer-link">Backpacks</Link></p>
+                            <p><Link to="" id="footer-link">Men's Apparel</Link></p>
+                            <p><Link to="" id="footer-link">Women's Apparel</Link></p>
                         </div>
                         <div id="navbox-links">
                             <h1>Support</h1>
-                            <p><Link id="footer-link">Contact Us</Link></p>
-                            <p><Link id="footer-link">Shipping Info</Link></p>
-                            <p><Link id="footer-link">Return Policy</Link></p>
-                            <p><Link id="footer-link">Product Care</Link></p>
-                            <p><Link id="footer-link">Parts & Warranty</Link></p>
-                            <p><Link id="footer-link">Distributors</Link></p>
+                            <p><Link to="" id="footer-link">Contact Us</Link></p>
+                            <p><Link to="" id="footer-link">Shipping Info</Link></p>
+                            <p><Link to="" id="footer-link">Return Policy</Link></p>
+                            <p><Link to="" id="footer-link">Product Care</Link></p>
+                            <p><Link to="" id="footer-link">Parts & Warranty</Link></p>
+                            <p><Link to="" id="footer-link">Distributors</Link></p>
                         </div>
                         <div id="navbox-links">
                             <h1>Company</h1>
-                            <p><Link id="footer-link">Our Story</Link></p>
-                            <p><Link id="footer-link">Terms of Use</Link></p>
-                            <p><Link id="footer-link">Privacy Policy</Link></p>
+                            <p><Link to="" id="footer-link">Our Story</Link></p>
+                            <p><Link to="" id="footer-link">Terms of Use</Link></p>
+                            <p><Link to="" id="footer-link">Privacy Policy</Link></p>
                         </div>
                     </div>
                     <div id="footer-end">

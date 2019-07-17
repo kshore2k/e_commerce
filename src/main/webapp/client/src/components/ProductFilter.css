@@ -17,7 +17,7 @@
 }
 
 .filter-title > h1 {
-    width: 85px;
+    width: 80px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
     font-weight: lighter;
@@ -26,6 +26,8 @@
 }
 
 .filter-title > p {
+    text-align: center;
+    width: 20px;
     margin-left: 75px;
     cursor: pointer;
     margin-right: 10px;
