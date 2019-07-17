@@ -28,10 +28,10 @@ class HeaderNav extends Component {
                     <div id="container-navigation">
                         <Link to="/collection/tents" className="link">TENTS</Link>
                         <Link to="/collection/sleeping-bags" className="link">SLEEPING BAGS</Link>
-                        <Link to="" className="link">BACKPACKS</Link>
-                        <Link to="" className="link">MEN'S APPAREL</Link>
-                        <Link to="" className="link">WOMEN'S APPAREL</Link>
-                        <Link to="" className="link">COLLECTIONS</Link>
+                        <Link to="/collection/backpacks" className="link">BACKPACKS</Link>
+                        <Link to="/collection/mens-apparel" className="link">MEN'S APPAREL</Link>
+                        <Link to="/collection/womens-apparel" className="link">WOMEN'S APPAREL</Link>
+                        <Link to="/collection/" className="link">COLLECTIONS</Link>
                         <Link to="" className="link">ABOUT US</Link>
 
                         <form id="search-bar">

@@ -1,4 +1,4 @@
-#tent-hero {
+#collection-hero {
     width: 100%;
 }
 
@@ -47,8 +47,9 @@
     margin-top: 5px;
 }
 
-.container-product > p {
-    font-size: 18px;
+#rating {
+    height: 20px;
+    width: auto;
 }
 
 #title-filters > p {
