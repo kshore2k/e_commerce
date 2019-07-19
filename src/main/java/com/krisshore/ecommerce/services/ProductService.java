@@ -48,10 +48,10 @@ public class ProductService {
 						String title,
 						String description,
 						Double price,
-						String image_url,
+						String imageUrl,
 						String features,
 						Integer rating,
-						String item_number,
+						String itemNumber,
 						String category,
 						String collection
 					) {
@@ -63,10 +63,10 @@ public class ProductService {
 			productToUpdate.setTitle(title);
 			productToUpdate.setDescription(description);
 			productToUpdate.setPrice(price);
-			productToUpdate.setImage_url(image_url);
+			productToUpdate.setImage_url(imageUrl);
 			productToUpdate.setFeatures(features);
 			productToUpdate.setRating(rating);
-			productToUpdate.setItem_number(item_number);
+			productToUpdate.setItem_number(itemNumber);
 			productToUpdate.setCategory(category);
 			productToUpdate.setCollection(collection);
 			

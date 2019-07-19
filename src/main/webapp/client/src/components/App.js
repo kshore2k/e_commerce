@@ -10,6 +10,7 @@ import Home from './Home';
 import Login from './Login';
 import Registration from './Registration';
 import Collection from './Collection';
+import ProductDetail from './ProductDetail';
 import UserAccount from './UserAccount';
 import RequireAuth from './RequireAuth';
 import Footer from './Footer';
@@ -25,9 +26,10 @@ class App extends Component {
                     <Route path="/login" component={Login} />
                     <Route path="/register" component={Registration} />
                     <Route path="/account" component={RequireAuth(UserAccount)} />
-                    <Route path="/collection/:type"  
+                    <Route exact path="/collection/:type"  
                         render={(props) => <Collection key={props.match.params.type} {...props}/> }
                     />
+                    <Route path="/collection/:type/:id" component={ProductDetail} />
                 <Footer />
                 </Router>
             </Provider>

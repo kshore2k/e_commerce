@@ -25,6 +25,10 @@
 
 }
 
+.show-product-link {
+    text-decoration: none;
+}
+
 .container-product {
     /* background-color: cadetblue; */
     display: flex;

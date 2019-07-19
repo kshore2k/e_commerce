@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import HeroImage from './HeroImage';
 import ProductFilter from './ProductFilter';
 import StarRating from './StarRating';
@@ -26,12 +27,14 @@ class Collection extends Component {
         if(this.props.collection[this.state.type]) {
             collection = this.props.collection[this.state.type].map(product => {
                 return (
-                    <div key={product.item_number} className="container-product">
-                        <img src={product.image_url} alt="product"/>
-                        <h1>{product.title}</h1>
-                        <h2>${product.price}</h2>
-                        <StarRating rating={product.rating} />
-                    </div>
+                    <Link key={product.item_number} to={`${this.props.match.url}/${product.id}`} className="show-product-link">
+                        <div className="container-product">
+                            <img src={product.image_url} alt="product"/>
+                            <h1>{product.title}</h1>
+                            <h2>${product.price}</h2>
+                            <StarRating rating={product.rating} />
+                        </div>
+                    </Link>
                 );
             });
         }
@@ -42,7 +45,7 @@ class Collection extends Component {
                 <HeroImage collection={this.state.type} />
 
                 <div id="title-filters">
-                    
+
                     <h1 id="product-title">{this.state.type.toUpperCase()}</h1>
                     <ProductFilter />
 

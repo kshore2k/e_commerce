@@ -5,3 +5,4 @@ export const REGISTER_USER = "REGISTER_USER";
 
 // Products
 export const FETCH_COLLECTION = "FETCH_COLLECTION";
+export const FETCH_PRODUCT = "FETCH_PRODUCT";

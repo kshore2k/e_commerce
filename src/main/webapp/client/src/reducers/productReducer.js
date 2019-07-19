@@ -1,7 +1,8 @@
-import { FETCH_COLLECTION } from '../actions/types';
+import { FETCH_COLLECTION, FETCH_PRODUCT } from '../actions/types';
 
 const initialState = {
-    collections: {}
+    collections: {},
+    product: {}
 };
 
 export default function(state = initialState, action) {
@@ -10,6 +11,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 collections: action.payload
+            };
+        case FETCH_PRODUCT:
+            return {
+                ...state,
+                product: action.payload
             };
         default:
             return state;

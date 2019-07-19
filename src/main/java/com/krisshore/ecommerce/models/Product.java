@@ -36,7 +36,7 @@ public class Product {
 	private String description;
 	
 	private Double price;
-	private String image_url;
+	private String imageUrl;
 	
 	@Size(min=10, max=200)
 	private String features;
@@ -45,7 +45,7 @@ public class Product {
 	private Integer rating;
 	
 	@Size(min=1, max=20)
-	private String item_number;
+	private String itemNumber;
 	
 	@Size(min=1, max=20)
 	private String category;
@@ -78,14 +78,14 @@ public class Product {
 	}
 
 
-	public Product(String title, String description, Double price, String image_url, String features, Integer rating, String item_number, String category, String collection) {
+	public Product(String title, String description, Double price, String imageUrl, String features, Integer rating, String itemNumber, String category, String collection) {
 		this.title = title;
 		this.description = description;
 		this.price = price;
-		this.image_url = image_url;
+		this.imageUrl = imageUrl;
 		this.features = features;
 		this.rating = rating;
-		this.item_number = item_number;
+		this.itemNumber = itemNumber;
 		this.category = category;
 		this.collection = collection;
 	}
@@ -132,12 +132,12 @@ public class Product {
 
 
 	public String getImage_url() {
-		return image_url;
+		return imageUrl;
 	}
 
 
 	public void setImage_url(String image_url) {
-		this.image_url = image_url;
+		this.imageUrl = image_url;
 	}
 
 
@@ -162,12 +162,12 @@ public class Product {
 
 
 	public String getItem_number() {
-		return item_number;
+		return itemNumber;
 	}
 
 
 	public void setItem_number(String item_number) {
-		this.item_number = item_number;
+		this.itemNumber = item_number;
 	}
 
 

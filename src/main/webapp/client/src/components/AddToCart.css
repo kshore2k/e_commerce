@@ -1,0 +1,88 @@
+#nav-history {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: #007381;
+}
+
+#nav-history > .home-link {
+    color: #373737;
+}
+
+.home-link:nth-of-type(2) {
+    text-decoration: none;
+}
+
+.home-link:nth-of-type(2):hover {
+    text-decoration: underline;
+}
+
+#nav-history > span {
+    color: #676767;
+}
+
+#add-product-container {
+    /* background-color: rebeccapurple; */
+    height: 500px;
+    width: 330px;
+    padding: 40px;
+}
+
+#add-product-container > #item_num {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    color: #676767;
+    margin-top: 30px;
+}
+
+#add-product-container > h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    color: #373737;
+    margin-bottom: 20px;
+}
+
+#add-product-container > h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+#add-product-container > #quantity {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #373737;
+    margin-top: 20px;
+}
+
+form > select {
+    height: 40px;
+    width: 40px;
+    font-size: 15px;
+    color: #3f3f3f;
+    margin-top: 5px;
+}
+
+form > button {
+    width: 225px;
+    height: 45px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    background-color: #007381;
+    color: white;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+form > button:hover {
+    transition: .35s;
+    background-color: #00383f;
+}
+
+form > button:focus {
+    outline: none;
+}

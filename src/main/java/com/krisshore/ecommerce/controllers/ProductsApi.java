@@ -34,10 +34,10 @@ public class ProductsApi {
 								payload.get("title").toString(),
 								payload.get("description").toString(),
 								Double.parseDouble((payload.get("price").toString())),
-								payload.get("image_url").toString(),
+								payload.get("imageUrl").toString(),
 								payload.get("features").toString(),
 								Integer.parseInt(payload.get("rating").toString()),
-								payload.get("item_number").toString(),
+								payload.get("itemNumber").toString(),
 								payload.get("category").toString(),
 								payload.get("collection").toString()
 							);
@@ -50,6 +50,7 @@ public class ProductsApi {
 		Product oneProduct = productService.findProduct(id);
 		return oneProduct;
 	}
+	
 	
 	// Find all via Collection type 
 	@RequestMapping("api/products/collection/{type}")
@@ -66,10 +67,10 @@ public class ProductsApi {
 									payload.get("title").toString(),
 									payload.get("description").toString(),
 									Double.parseDouble((payload.get("price").toString())),
-									payload.get("image_url").toString(),
+									payload.get("imageUrl").toString(),
 									payload.get("features").toString(),
 									Integer.parseInt(payload.get("rating").toString()),
-									payload.get("item_number").toString(),
+									payload.get("itemNumber").toString(),
 									payload.get("category").toString(),
 									payload.get("collection").toString()
 								);
