@@ -28,7 +28,7 @@ public class Review {
 	private Long id;
 	
 	@Size(min=3, max=200)
-	private String descripion;
+	private String description;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="product_id")
@@ -53,7 +53,7 @@ public class Review {
 
 
 	public Review(String descripion, Product product, User user) {
-		this.descripion = descripion;
+		this.description = descripion;
 		this.product = product;
 		this.user = user;
 	}
@@ -69,13 +69,13 @@ public class Review {
 	}
 
 
-	public String getDescripion() {
-		return descripion;
+	public String getDescription() {
+		return description;
 	}
 
 
-	public void setDescripion(String descripion) {
-		this.descripion = descripion;
+	public void setDescription(String descripion) {
+		this.description = descripion;
 	}
 
 

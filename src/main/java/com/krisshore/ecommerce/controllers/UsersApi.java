@@ -69,10 +69,10 @@ public class UsersApi {
 			) {
 		String email = payload.get("email").toString();
 		String password = payload.get("password").toString();
-		System.out.println(userService.authenticateUser(email, password));
 		User thisUser = userService.authenticateUser(
 											email, 
 											password) ? userService.findByEmail(email) : null;
+		session.setAttribute("user_id", thisUser.getId());
 		return thisUser;
 	}
 	

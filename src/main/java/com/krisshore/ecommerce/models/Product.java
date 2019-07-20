@@ -32,13 +32,13 @@ public class Product {
 	@Size(min=1, max=200)
 	private String title;
 	
-	@Size(min=10, max=200)
+	@Size(min=10, max=500)
 	private String description;
 	
 	private Double price;
 	private String imageUrl;
 	
-	@Size(min=10, max=200)
+	@Size(min=10, max=500)
 	private String features;
 	
 //	@Size(min=1, max=5)

@@ -44,7 +44,7 @@ public class ReviewService {
 		if(thisReview.isPresent()) {
 			Review reviewToUpdate = thisReview.get();
 			
-			reviewToUpdate.setDescripion(description);
+			reviewToUpdate.setDescription(description);
 			
 			return reviewRepo.save(reviewToUpdate);
 		} else {

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import AddToCart from './AddToCart';
+import ProductFeatures from './ProductFeatures';
+import ProductReviews from './ProductReviews';
 import { connect } from 'react-redux';
 import { fetchProduct } from '../actions/productActions';
+import './ProductDetail.css';
 
 class ProductDetail extends Component {
     constructor(props) {
@@ -25,13 +28,22 @@ class ProductDetail extends Component {
     render() {
         if(this.state.product) {
             return (
-                <div>
+                <div id="container-product-main">
                     <AddToCart 
                         collection={this.state.product.collection}
                         title={this.state.product.title}
                         itemNumber={this.state.product.item_number}
                         rating={this.state.product.rating}
                     />
+                    <div id="container-show-product">
+                        <img src={this.state.product.image_url} alt={this.state.product.title}/>
+
+                        <p id="product-description">{this.state.product.description}</p>
+
+                        <ProductFeatures features={this.state.product.features}/>
+
+                        <ProductReviews reviews={this.state.product.reviews}/>
+                    </div>
                 </div>
             ); 
         } else {
