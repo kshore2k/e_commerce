@@ -27,8 +27,16 @@ public class Review {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Size(min=3, max=200)
+	@Size(min=3, max=100)
+	private String title;
+	
+	private Integer rating;
+	
+	@Size(min=3, max=500)
 	private String description;
+	
+	@Size(min=3, max=20)
+	private String userName;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="product_id")
@@ -52,8 +60,11 @@ public class Review {
 	}
 
 
-	public Review(String descripion, Product product, User user) {
-		this.description = descripion;
+	public Review(String title, Integer rating, String description, String userName, Product product, User user) {
+		this.title = title;
+		this.rating = rating;
+		this.description = description;
+		this.userName = userName;
 		this.product = product;
 		this.user = user;
 	}
@@ -67,6 +78,24 @@ public class Review {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public Integer getRating() {
+		return rating;
+	}
+
+
+	public void setRating(Integer rating) {
+		this.rating = rating;
+	}
 
 
 	public String getDescription() {
@@ -74,8 +103,17 @@ public class Review {
 	}
 
 
-	public void setDescription(String descripion) {
-		this.description = descripion;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 

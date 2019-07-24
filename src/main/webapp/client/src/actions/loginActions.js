@@ -9,12 +9,16 @@ export const login = (userData) => dispatch => {
         body: JSON.stringify(userData)
     })
         .then(res => res.json())
-        .then(user => 
-            dispatch({
-                type: LOGIN_USER,
-                payload: user
-            })
-        )
+        .then(user => {
+            if(!user.error) {
+                dispatch({
+                    type: LOGIN_USER,
+                    payload: user
+                })
+            } else {
+                throw new Error();
+            }
+        })
         .catch(err => 
             dispatch({
                 type: INVALID_USER,

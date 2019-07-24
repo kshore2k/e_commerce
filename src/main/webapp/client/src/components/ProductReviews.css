@@ -26,6 +26,8 @@
 
 .container-review {
     margin-top: 20px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #eeeeee;
 }
 
 .container-review > h2 {
@@ -42,20 +44,41 @@
     margin-bottom: 20px;
 }
 
-.container-review > .review-user {
+.container-review > .container-review-details {
+    display: flex;
+    align-items: center;
+}
+
+.container-review-details > .review-avatar {
+    height: 55px;
+    width: 55px;
+    background-color: #f5f5f5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #bbbbbc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.review-details {
+    padding-left: 10px;
+}
+
+.review-details > .review-user {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
     font-weight: 600;
-    color: #727272;
+    color: black;
 }
 
-.container-review > .review-date {
+.review-details > .review-date {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
     font-weight: lighter;
     color: #cecece;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #eeeeee;
 }
 
 

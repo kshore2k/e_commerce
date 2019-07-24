@@ -104,7 +104,7 @@ class Login extends Component {
                                 />
                                 <br/>
                                 <button type="submit">LOG IN</button>
-                                <Link id="forgot-password">Forgot your password?</Link>
+                                <Link id="forgot-password" to="">Forgot your password?</Link>
                             </form>
                         </div>
                     </div>

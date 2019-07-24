@@ -44,7 +44,10 @@ public class ReviewsApi {
 		Long user_id = (Long) session.getAttribute("user_id");
 		
 		Review newReview = new Review(
+									payload.get("title").toString(),
+									Integer.parseInt(payload.get("rating").toString()),
 									payload.get("description").toString(),
+									payload.get("userName").toString(),
 									productToReview,
 									userService.findUser(user_id)
 								);
@@ -61,7 +64,13 @@ public class ReviewsApi {
 	// Edit One
 	@RequestMapping(value="api/products/reviews/{id}", method=RequestMethod.PUT)
 	public Review update(@PathVariable("id") Long id, @RequestBody Map<String, Object> payload) {
-		return reviewService.updateReview(id, payload.get("description").toString());
+		return reviewService.updateReview(
+									id, 
+									payload.get("title").toString(), 
+									Integer.parseInt(payload.get("rating").toString()), 
+									payload.get("description").toString(),
+									payload.get("userName").toString()
+								);
 	}
 	
 	// Delete One

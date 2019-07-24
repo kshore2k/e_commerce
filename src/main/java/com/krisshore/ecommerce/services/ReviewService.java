@@ -38,13 +38,16 @@ public class ReviewService {
 	}
 	
 	// Update a Review
-	public Review updateReview(Long id, String description) {
+	public Review updateReview(Long id, String title, Integer rating, String description, String userName) {
 		Optional<Review> thisReview = reviewRepo.findById(id);
 		
 		if(thisReview.isPresent()) {
 			Review reviewToUpdate = thisReview.get();
 			
+			reviewToUpdate.setTitle(title);
+			reviewToUpdate.setRating(rating);
 			reviewToUpdate.setDescription(description);
+			reviewToUpdate.setUserName(userName);
 			
 			return reviewRepo.save(reviewToUpdate);
 		} else {
