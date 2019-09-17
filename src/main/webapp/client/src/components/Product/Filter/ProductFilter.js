@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import oneStar from '../static/1stars.png'; 
-import twoStar from '../static/2stars.png';
-import threeStar from '../static/3stars.png';
-import fourStar from '../static/4stars.png';
-import fiveStar from '../static/5stars.png';
-import './ProductFilter.css';
+import oneStar from '../../../static/1stars.png'; 
+import twoStar from '../../../static/2stars.png';
+import threeStar from '../../../static/3stars.png';
+import fourStar from '../../../static/4stars.png';
+import fiveStar from '../../../static/5stars.png';
+import './styles/ProductFilter.css';
 
 class ProductFilter extends Component {
 

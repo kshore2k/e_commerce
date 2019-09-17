@@ -1,8 +1,8 @@
 import React, {Component } from 'react';
-import './Slideshow.css';
-import img1 from '../static/camp-hero1.jpg';
-import img2 from '../static/camp-hero2.jpg';
-import img3 from '../static/camp-hero3.jpg';
+import img1 from '../../static/camp-hero1.jpg';
+import img2 from '../../static/camp-hero2.jpg';
+import img3 from '../../static/camp-hero3.jpg';
+import './styles/Slideshow.css';
 
 class Slideshow extends Component {
 

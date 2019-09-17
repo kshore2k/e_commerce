@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import HeroImage from './HeroImage';
-import ProductFilter from './ProductFilter';
-import StarRating from './StarRating';
+import ProductFilter from '../Filter/ProductFilter';
+import StarRating from '../StarRating/StarRating';
 import CollectionSummary from './CollectionSummary';
 import { connect } from 'react-redux';
-import { fetchCollection } from '../actions/productActions';
-import './Collection.css';
+import { fetchCollection } from '../../../actions/productActions';
+import './styles/Collection.css';
 
 class Collection extends Component {
     constructor(props) {

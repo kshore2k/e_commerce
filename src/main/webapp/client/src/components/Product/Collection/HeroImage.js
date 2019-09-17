@@ -1,9 +1,9 @@
 import React from 'react';
-import tentsHero from '../static/tents-hero.jpg'; 
-import sleepingBagsHero from '../static/sleeping-bags-hero.jpg';
-import backpacksHero from '../static/backpacks-hero.jpg';
-import mensApparelHero from '../static/mens-apparel-hero.jpg';
-import womensApparelHero from '../static/womens-apparel-hero.jpg';
+import tentsHero from '../../../static/tents-hero.jpg'; 
+import sleepingBagsHero from '../../../static/sleeping-bags-hero.jpg';
+import backpacksHero from '../../../static/backpacks-hero.jpg';
+import mensApparelHero from '../../../static/mens-apparel-hero.jpg';
+import womensApparelHero from '../../../static/womens-apparel-hero.jpg';
 
 const HeroImage = (props) => {
 

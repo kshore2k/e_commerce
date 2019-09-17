@@ -1,6 +1,6 @@
 import React from 'react';
-import border from '../static/grey-border.jpg';
-import './ProductFeatures.css';
+import border from '../../../static/grey-border.jpg';
+import './styles/ProductFeatures.css';
 
 const ProductFeatures = (props) => {
     let features = props.features.split(".").map((feature,idx) => {

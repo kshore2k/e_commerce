@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import AddToCart from './AddToCart';
-import ProductFeatures from './ProductFeatures';
-import ProductReviews from './ProductReviews';
+import AddToCart from '../../Cart/AddToCart';
+import ProductFeatures from '../Features/ProductFeatures';
+import ProductReviews from '../Reviews/ProductReviews';
 import { connect } from 'react-redux';
-import { fetchProduct } from '../actions/productActions';
-import './ProductDetail.css';
+import { fetchProduct } from '../../../actions/productActions';
+import './styles/ProductDetail.css';
 
 class ProductDetail extends Component {
     constructor(props) {

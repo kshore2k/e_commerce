@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import store from '../store';
 import 'react-router';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../../store';
 
 //components
-import HeaderNav from './HeaderNav';
-import Home from './Home';
-import Login from './Login';
-import Registration from './Registration';
-import Collection from './Collection';
-import ProductDetail from './ProductDetail';
-import UserAccount from './UserAccount';
+import HeaderNav from '../Header/HeaderNav';
+import Home from '../Slideshow/Home';
+import Login from '../User/Login/Login';
+import Registration from '../User/Registration/Registration';
+import Collection from '../Product/Collection/Collection';
+import ProductDetail from '../Product/Detail/ProductDetail';
+import UserAccount from '../User/Account/UserAccount';
 import RequireAuth from './RequireAuth';
-import Footer from './Footer';
+import Footer from '../Footer/Footer';
 
 class App extends Component {
 

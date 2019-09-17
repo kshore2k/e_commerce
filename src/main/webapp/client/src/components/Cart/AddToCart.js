@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addToCart } from '../actions/cartActions';
-import StarRating from './StarRating';
-import './AddToCart.css';
+import { addToCart } from '../../actions/cartActions';
+import StarRating from '../Product/StarRating/StarRating';
+import './styles/AddToCart.css';
 
 class AddToCart extends Component {
 

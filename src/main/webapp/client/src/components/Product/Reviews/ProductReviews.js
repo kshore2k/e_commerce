@@ -1,6 +1,6 @@
 import React from 'react';
-import StarRating from './StarRating';
-import './ProductReviews.css';
+import StarRating from '../StarRating/StarRating';
+import './styles/ProductReviews.css';
 
 const ProductReview = (props) => {
     

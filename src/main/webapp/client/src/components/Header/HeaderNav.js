@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './HeaderNav.css';
-import logo from '../static/logo-w-txt.png';
-import userIcon from '../static/user.png';
-import cartIcon from '../static/cart.png'
+import logo from '../../static/logo-w-txt.png';
+import userIcon from '../../static/user.png';
+import cartIcon from '../../static/cart.png'
+import './styles/HeaderNav.css';
 
 class HeaderNav extends Component {
     

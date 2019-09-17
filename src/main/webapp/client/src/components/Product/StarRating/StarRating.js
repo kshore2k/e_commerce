@@ -1,10 +1,10 @@
 import React from 'react';
-import zeroStar from '../static/0stars.png'; 
-import oneStar from '../static/1stars.png'; 
-import twoStar from '../static/2stars.png';
-import threeStar from '../static/3stars.png';
-import fourStar from '../static/4stars.png';
-import fiveStar from '../static/5stars.png';
+import zeroStar from '../../../static/0stars.png'; 
+import oneStar from '../../../static/1stars.png'; 
+import twoStar from '../../../static/2stars.png';
+import threeStar from '../../../static/3stars.png';
+import fourStar from '../../../static/4stars.png';
+import fiveStar from '../../../static/5stars.png';
 
 const StarRating = (props) => {
 

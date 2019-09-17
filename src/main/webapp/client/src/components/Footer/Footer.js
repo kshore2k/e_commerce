@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../static/logo-w-txt-white.png';
-import githubIcon from '../static/github-icon.png';
-import githubIconHover from '../static/github-icon-dark.png'
-import linkedInIcon from '../static/linkedin-icon.png';
-import linkedInIconHover from '../static/linkedin-icon-dark.png';
-import portfolioIcon from '../static/enso-icon.png';
-import portfolioIconHover from '../static/enso-icon-dark.png';
-
-import './Footer.css';
+import logo from '../../static/logo-w-txt-white.png';
+import githubIcon from '../../static/github-icon.png';
+import githubIconHover from '../../static/github-icon-dark.png'
+import linkedInIcon from '../../static/linkedin-icon.png';
+import linkedInIconHover from '../../static/linkedin-icon-dark.png';
+import portfolioIcon from '../../static/enso-icon.png';
+import portfolioIconHover from '../../static/enso-icon-dark.png';
+import './styles/Footer.css';
 
 class Footer extends Component {
     constructor(props) {
