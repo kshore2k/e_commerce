@@ -34,6 +34,8 @@ class ProductDetail extends Component {
                         title={this.state.product.title}
                         itemNumber={this.state.product.item_number}
                         rating={this.state.product.rating}
+                        price={this.state.product.price}
+                        product={this.state.product}
                     />
                     <div id="container-show-product">
                         <img src={this.state.product.image_url} alt={this.state.product.title}/>

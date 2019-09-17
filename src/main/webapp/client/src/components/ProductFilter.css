@@ -38,7 +38,7 @@
 }
 
 .sub-nav > li {
-    width: 100px;
+    width: 110px;
     list-style: none;
     padding-left: 0;
 }
@@ -51,8 +51,41 @@
     text-decoration: none;
 }
 
-.sub-nav > li:hover {
+.sub-nav > .cat-filter:hover {
     text-decoration: underline;
+}
+
+.price-filter {
+    height: 40px;
+    width: 50px;
+    background-color: #f6f6f6;
+    color: #929292;
+    border: 1px solid #999999;
+    text-align: center;
+}
+
+#price-seperator {
+    display: inline-block;
+    padding: 0 2px;
+}
+
+#price-update {
+    border: none;
+    background-color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#price-update:focus {
+    border: none;
+    outline: none;
+}
+
+.sub-nav > li > img {
+    height: 18px;
+    width: auto;
+    vertical-align: top;
+    margin-left: 5px;
 }
 
 .slider {

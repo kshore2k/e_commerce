@@ -2,7 +2,7 @@ import { LOGIN_USER, INVALID_USER, REGISTER_USER } from '../actions/types';
 
 const initialState = {
     loggedIn: false,
-    details: {},
+    details: { cart: { id: 0 } },
     error: null
 };
 
