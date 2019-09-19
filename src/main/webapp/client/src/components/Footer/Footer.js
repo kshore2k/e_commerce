@@ -105,11 +105,11 @@ class Footer extends Component {
                         </div>
                         <div id="navbox-links">
                             <h1>Products</h1>
-                            <p><Link to="" id="footer-link">Tents</Link></p>
-                            <p><Link to="" id="footer-link">Sleeping Bags</Link></p>
-                            <p><Link to="" id="footer-link">Backpacks</Link></p>
-                            <p><Link to="" id="footer-link">Men's Apparel</Link></p>
-                            <p><Link to="" id="footer-link">Women's Apparel</Link></p>
+                            <p><Link to="/collection/tents" id="footer-link">Tents</Link></p>
+                            <p><Link to="/collection/sleeping-bags" id="footer-link">Sleeping Bags</Link></p>
+                            <p><Link to="/collection/backpacks" id="footer-link">Backpacks</Link></p>
+                            <p><Link to="/collection/mens-apparel" id="footer-link">Men's Apparel</Link></p>
+                            <p><Link to="/collection/womens-apparel" id="footer-link">Women's Apparel</Link></p>
                         </div>
                         <div id="navbox-links">
                             <h1>Support</h1>
