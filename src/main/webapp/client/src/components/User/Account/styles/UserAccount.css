@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 550px;
+    height: auto;
 }
 
 #container-main-account > #nav-history {
@@ -80,6 +80,7 @@
 
 #account-details {
     /* background-color: blue; */
+    overflow: scroll;
     display: flex;
     flex-direction: column;
     align-content: flex-start;
