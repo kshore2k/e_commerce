@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { edit } from '../../../actions/userActions';
 import './styles/EditAccountForm.css';
 
 class EditAccountForm extends Component {
@@ -12,7 +13,8 @@ class EditAccountForm extends Component {
             phoneNumber: this.props.details.phone_number,
             email: this.props.details.email,
             newPassword: "",
-            newPasswordConfirm: ""
+            newPasswordConfirm: "",
+            confirmationMessage: ""
         };
     };
 
@@ -22,20 +24,37 @@ class EditAccountForm extends Component {
         this.setState({ [name]: value });
     };
 
+    checkPasswordConfirm = () => {
+        const { newPassword, newPasswordConfirm } = this.state;
+
+        if (newPassword !== newPasswordConfirm) {
+            this.setState({ confirmationMessage: "Passwords Must Match" });
+            return false;
+        }
+
+        return true;
+    };
+
     onFormSubmit = (event) => {
         event.preventDefault();
 
         const state = this.state;
 
         const updatedUser = {
-            firstName: state.firstName,
-            lastName: state.lastName,
-            phoneNumber: state.phoneNumber,
-            email: state.email,
-            newPassword: state.newPassword
+            id: this.props.details.id,
+            updates: {
+                first_name: state.firstName,
+                last_name: state.lastName,
+                email: state.email,
+                phone_number: state.phoneNumber,
+                password: state.newPassword
+            }
         };
 
-        console.log(updatedUser);
+        if (this.checkPasswordConfirm()) {
+            this.props.edit(updatedUser);
+            this.setState({ confirmationMessage: "Account Details Updated"})
+        };
     };
 
     render() {
@@ -103,7 +122,7 @@ class EditAccountForm extends Component {
                         placeholder="(Leave blank to remain unchanged)"
                         onChange={this.onFormInput}
                     />
-
+                    <p style={{ color: 'red', marginLeft: '175px' }}>{this.state.confirmationMessage}</p>
                     <button id="button-update">UPDATE MY DETAILS</button>
                 </form>
             </div>
@@ -115,4 +134,4 @@ const mapStateToProps = state => ({
     details: state.user.details
 });
 
-export default connect(mapStateToProps, {})(EditAccountForm);
+export default connect(mapStateToProps, { edit })(EditAccountForm);

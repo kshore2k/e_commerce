@@ -67,13 +67,9 @@ public class UserService {
 					String first_name,
 					String last_name,
 					String email,
-					String password,
-					String city,
-					String state,
-					String country,
-					String zipcode,
-					String address,
-					String phone_number
+					String phone_number,
+					String password
+					
 				) {
 		Optional<User> thisUser = userRepo.findById(id);
 		
@@ -83,13 +79,14 @@ public class UserService {
 			userToUpdate.setFirst_name(first_name);
 			userToUpdate.setLast_name(last_name);
 			userToUpdate.setEmail(email);
-			userToUpdate.setPassword(password);
-			userToUpdate.setCity(city);
-			userToUpdate.setState(state);
-			userToUpdate.setCountry(country);
-			userToUpdate.setZipcode(zipcode);
-			userToUpdate.setAddress(address);
 			userToUpdate.setPhone_number(phone_number);
+			
+			if (!password.equals("")) {
+				userToUpdate.setPassword(password);
+			} else {
+				userToUpdate.setPassword(userToUpdate.getPassword());
+			}
+			
 			
 			return userRepo.save(userToUpdate);
 		} else {

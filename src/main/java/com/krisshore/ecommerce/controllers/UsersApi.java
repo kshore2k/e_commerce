@@ -94,13 +94,9 @@ public class UsersApi {
 								payload.get("first_name").toString(),
 								payload.get("last_name").toString(),
 								payload.get("email").toString(),
-								payload.get("password").toString(),
-								payload.get("city").toString(),
-								payload.get("state").toString(),
-								payload.get("country").toString(),
-								payload.get("zipcode").toString(),
-								payload.get("address").toString(),
-								payload.get("phone_number").toString()
+								payload.get("phone_number").toString(),
+								payload.get("password").toString()
+								
 							);
 	}
 	

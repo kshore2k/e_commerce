@@ -27,7 +27,7 @@ class App extends Component {
                     <Route path="/register" component={Registration} />
                     <Route path="/account" component={RequireAuth(UserAccount)} />
                     <Route exact path="/collection/:type"  
-                        render={(props) => <Collection key={props.match.params.type} {...props}/> }
+                        render={(props) => <Collection key={props.match.params.type} {...props} />}
                     />
                     <Route path="/collection/:type/:id" component={ProductDetail} />
                 <Footer />

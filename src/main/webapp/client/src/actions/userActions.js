@@ -1,6 +1,6 @@
-import { LOGIN_USER, INVALID_USER, REGISTER_USER } from './types';
+import { LOGIN_USER, INVALID_USER, REGISTER_USER, EDIT_USER } from './types';
 
-export const login = (userData) => dispatch => {
+export const login = userData => dispatch => {
     fetch('/api/login', {
         method: 'POST',
         headers: {
@@ -27,7 +27,7 @@ export const login = (userData) => dispatch => {
         )
 };
 
-export const register = (userData) => dispatch => {
+export const register = userData => dispatch => {
     fetch('/api/register', {
         method: 'POST',
         headers: {
@@ -42,4 +42,20 @@ export const register = (userData) => dispatch => {
                 payload: user
             })
         )
-}
+};
+
+export const edit = userData => dispatch => {
+    fetch(`/api/users/${userData.id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(userData.updates)
+    })
+        .then(res => res.json())
+        .then(user =>
+            dispatch({
+                type: EDIT_USER,
+                payload: user
+            }))
+};
