@@ -9,8 +9,8 @@ I decided to build this site for my own educational purposes only. All retail in
 - **Redux** (thunk) state management system
 - **CSS Flexbox**
 ### Functionality
-- User's can create and edit profiles, browse products, leave reviews, and add/remove items from personal shopping cart
-- Item's can be added/updated/deleted from the database
+- Users can create and edit profiles, browse products, leave reviews, and add/remove items from personal shopping cart
+- Items can be added/updated/deleted from the database
 - Products can be browsed by category and filtered by price & rating
 ### To-Do's
 - Seperate Admin permissions
