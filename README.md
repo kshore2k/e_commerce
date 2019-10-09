@@ -18,6 +18,12 @@ I decided to build this site for my own educational purposes only. All retail in
 - Sub-category dropdown menus
 ### Screenshots
 ![alt text](./src/main/resources/static/screenshot-home.png "Ranier Designs landing page")
+
+
 ![alt text](./src/main/resources/static/screenshot-register.png "Ranier Designs registration page")
+
+
 ![alt text](./src/main/resources/static/screenshot-product.png "Ranier Designs product page")
+
+
 ![alt text](./src/main/resources/static/screenshot-reviews.png "Ranier Designs product reviews")
