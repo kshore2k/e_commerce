@@ -53,11 +53,13 @@ class EditAccountForm extends Component {
 
         if (this.checkPasswordConfirm()) {
             this.props.edit(updatedUser);
-            this.setState({ confirmationMessage: "Account Details Updated"})
+            this.setState({ confirmationMessage: "Account Details Updated" })
         };
     };
 
     render() {
+        const state = this.state;
+
         return (
             <div id="container-edit-form">
                 <form onSubmit={this.onFormSubmit} id="edit-account" className="edit-form">
@@ -67,7 +69,7 @@ class EditAccountForm extends Component {
                     <input type="text" 
                         autoComplete="off" 
                         name="firstName" 
-                        value={this.state.firstName}
+                        value={state.firstName}
                         onChange={this.onFormInput}
                     />
 
@@ -77,7 +79,7 @@ class EditAccountForm extends Component {
                     <input type="text" 
                         autoComplete="off" 
                         name="lastName" 
-                        value={this.state.lastName}
+                        value={state.lastName}
                         onChange={this.onFormInput}
                     />
 
@@ -87,7 +89,7 @@ class EditAccountForm extends Component {
                     <input type="text" 
                         autoComplete="off" 
                         name="phoneNumber" 
-                        value={this.state.phoneNumber}
+                        value={state.phoneNumber}
                         onChange={this.onFormInput}
                     />
 
@@ -97,7 +99,7 @@ class EditAccountForm extends Component {
                     <input type="text" 
                         autoComplete="off" 
                         name="email" 
-                        value={this.state.email}
+                        value={state.email}
                         onChange={this.onFormInput}
                     />
 
@@ -107,7 +109,7 @@ class EditAccountForm extends Component {
                     <input type="password" 
                         autoComplete="off" 
                         name="newPassword" 
-                        value={this.state.newPassword}
+                        value={state.newPassword}
                         placeholder="(Leave blank to remain unchanged)"
                         onChange={this.onFormInput}
                     />
@@ -118,11 +120,15 @@ class EditAccountForm extends Component {
                     <input type="password" 
                         autoComplete="off" 
                         name="newPasswordConfirm" 
-                        value={this.state.newPasswordConfirm}
+                        value={state.newPasswordConfirm}
                         placeholder="(Leave blank to remain unchanged)"
                         onChange={this.onFormInput}
                     />
-                    <p style={{ color: 'red', marginLeft: '175px' }}>{this.state.confirmationMessage}</p>
+
+                    <p id="edit-error-message">
+                        {state.confirmationMessage}
+                    </p>
+
                     <button id="button-update">UPDATE MY DETAILS</button>
                 </form>
             </div>
