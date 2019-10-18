@@ -14,4 +14,6 @@ public interface ProductRepository extends CrudRepository<Product, Long>{
 	
 	List<Product> findByCollection(String collection);
 	
+	List<Product> findByCollectionAndPriceGreaterThanEqualAndPriceLessThanEqual(String collection, Double minPrice, Double maxPrice);
+	
 }

@@ -47,7 +47,7 @@ class Collection extends Component {
                 <div id="title-filters">
 
                     <h1 id="product-title">{this.state.type.toUpperCase()}</h1>
-                    <ProductFilter />
+                    <ProductFilter collection={this.state.type}/>
 
                     <div id="container-all-products">
                         {collection}

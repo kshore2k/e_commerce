@@ -59,6 +59,15 @@ public class ProductsApi {
 		return products;
 	}
 	
+	// Find all of Price in Collection
+	@RequestMapping(value="api/products/collection/{type}/filter", method=RequestMethod.POST)
+	public List<Product> findCollectionByPrice(@PathVariable("type") String collection, @RequestBody Map<String, Object> payload) {
+		Double minPrice = Double.valueOf(payload.get("minPrice").toString());
+		Double maxPrice = Double.valueOf(payload.get("maxPrice").toString());
+		List<Product> products = productService.productsByCollectionAndPrice(collection, minPrice, maxPrice);
+		return products;
+	}
+	
 	// Edit One
 	@RequestMapping(value="api/products/{id}", method=RequestMethod.PUT)
 	public Product update(@PathVariable("id") Long id, @RequestBody Map<String, Object> payload) {

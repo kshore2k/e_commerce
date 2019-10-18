@@ -6,6 +6,7 @@ export const EDIT_USER = "EDIT_USER";
 
 // Products
 export const FETCH_COLLECTION = "FETCH_COLLECTION";
+export const FETCH_COLLECTION_BY_PRICE = "FETCH_COLLECTION_BY_PRICE";
 export const FETCH_PRODUCT = "FETCH_PRODUCT";
 
 // Cart

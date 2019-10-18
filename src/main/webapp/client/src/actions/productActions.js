@@ -1,4 +1,4 @@
-import { FETCH_COLLECTION, FETCH_PRODUCT } from './types';
+import { FETCH_COLLECTION, FETCH_COLLECTION_BY_PRICE, FETCH_PRODUCT } from './types';
 
 export const fetchCollection = type => dispatch => {
     fetch(`/api/products/collection/${type}`)
@@ -6,6 +6,23 @@ export const fetchCollection = type => dispatch => {
         .then(collection => 
             dispatch({
                 type: FETCH_COLLECTION,
+                payload: { [type]: collection }
+            })
+        )
+};
+
+export const fetchCollectionByPrice = (type, priceQuery) => dispatch => {
+    fetch(`/api/products/collection/${type}/filter`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(priceQuery)
+    })
+        .then(res => res.json())
+        .then(collection => 
+            dispatch({
+                type: FETCH_COLLECTION_BY_PRICE,
                 payload: { [type]: collection }
             })
         )

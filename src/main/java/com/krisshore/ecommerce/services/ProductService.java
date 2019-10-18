@@ -42,6 +42,11 @@ public class ProductService {
 		return productRepo.findByCollection(collection);
 	}
 	
+	// Retrieve products by Price
+	public List<Product> productsByCollectionAndPrice(String collection, Double minPrice, Double maxPrice) {
+		return productRepo.findByCollectionAndPriceGreaterThanEqualAndPriceLessThanEqual(collection, minPrice, maxPrice);
+	}
+	
 	// Update a Product
 	public Product updateProduct(
 						Long id,
