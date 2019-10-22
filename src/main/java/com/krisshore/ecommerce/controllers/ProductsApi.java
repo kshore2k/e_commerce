@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.krisshore.ecommerce.models.Product;
@@ -59,13 +60,28 @@ public class ProductsApi {
 		return products;
 	}
 	
-	// Find all of Price in Collection
+	// Find all of Given filter in Collection (Price,Rating,Category)
 	@RequestMapping(value="api/products/collection/{type}/filter", method=RequestMethod.POST)
-	public List<Product> findCollectionByPrice(@PathVariable("type") String collection, @RequestBody Map<String, Object> payload) {
-		Double minPrice = Double.valueOf(payload.get("minPrice").toString());
-		Double maxPrice = Double.valueOf(payload.get("maxPrice").toString());
-		List<Product> products = productService.productsByCollectionAndPrice(collection, minPrice, maxPrice);
-		return products;
+	public List<Product> findCollectionByPrice(@PathVariable("type") String collection, @RequestParam("by") String by, @RequestBody Map<String, Object> payload) {
+		List<Product> products;
+		
+		if (by.equals("price")) {
+			Double minPrice = Double.valueOf(payload.get("minPrice").toString());
+			Double maxPrice = Double.valueOf(payload.get("maxPrice").toString());
+			products = productService.productsByCollectionAndPrice(collection, minPrice, maxPrice);
+			return products;
+		} else if (by.equals("rating")) {
+			Integer rating = Integer.valueOf(payload.get("rating").toString());
+			products = productService.productsByCollectionAndRating(collection, rating);
+			return products;
+		} else if (by.equals("category")) {
+			String category = payload.get("category").toString();
+			products = productService.productsByCollectionAndCategory(collection, category);
+			return products;
+		} else {
+			products = productService.productCollection(collection);
+			return products;
+		}
 	}
 	
 	// Edit One

@@ -1,4 +1,4 @@
-import { FETCH_COLLECTION, FETCH_COLLECTION_BY_PRICE, FETCH_PRODUCT } from '../actions/types';
+import { FETCH_COLLECTION, FETCH_COLLECTION_BY_CATEGORY, FETCH_COLLECTION_BY_PRICE, FETCH_COLLECTION_BY_RATING, FETCH_PRODUCT } from '../actions/types';
 
 
 const initialState = {
@@ -13,7 +13,17 @@ export default function(state = initialState, action) {
                 ...state,
                 collections: action.payload
             };
+        case FETCH_COLLECTION_BY_CATEGORY:
+            return {
+                ...state,
+                collections: action.payload
+            };
         case FETCH_COLLECTION_BY_PRICE:
+            return {
+                ...state,
+                collections: action.payload
+            };
+        case FETCH_COLLECTION_BY_RATING:
             return {
                 ...state,
                 collections: action.payload

@@ -42,9 +42,19 @@ public class ProductService {
 		return productRepo.findByCollection(collection);
 	}
 	
+	// Retrieve a product by Category
+	public List<Product> productsByCollectionAndCategory(String collection, String category) {
+		return productRepo.findByCollectionAndCategory(collection, category);
+	}
+	
 	// Retrieve products by Price
 	public List<Product> productsByCollectionAndPrice(String collection, Double minPrice, Double maxPrice) {
 		return productRepo.findByCollectionAndPriceGreaterThanEqualAndPriceLessThanEqual(collection, minPrice, maxPrice);
+	}
+	
+	// Retrieve products by rating
+	public List<Product> productsByCollectionAndRating(String collection, Integer rating) {
+		return productRepo.findByCollectionAndRating(collection, rating);
 	}
 	
 	// Update a Product
