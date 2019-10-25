@@ -47,7 +47,7 @@ public class Product {
 	@Size(min=1, max=20)
 	private String itemNumber;
 	
-	@Size(min=1, max=20)
+//	@Size(min=1, max=20)
 	private String category;
 	
 	@Size(min=1, max=200)

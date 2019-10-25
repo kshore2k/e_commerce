@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import category from './categories';
 import { connect } from 'react-redux';
 import { fetchCollectionByCategory } from '../../../actions/productActions';
 
@@ -27,13 +28,14 @@ class CategoryFilter extends Component {
     };
 
     render() {
+        const categories = category[this.props.collection].map((category, index) => {
+            return <li className="cat-filter" key={index}><span className="filter-link" onClick={this.onCatgoryFilterUpdate} value={category}>{category}</span></li>
+        });
+
         return (
             <div className="slider closed" id="slider1">
                 <ul className="sub-nav">
-                    <li className="cat-filter"><span className="filter-link" onClick={this.onCatgoryFilterUpdate} value="1 Person Tent">1 Person Tent</span></li>
-                    <li className="cat-filter"><span className="filter-link" onClick={this.onCatgoryFilterUpdate} value="2 Person Tent">2 Person Tent</span></li>
-                    <li className="cat-filter"><span className="filter-link" onClick={this.onCatgoryFilterUpdate} value="3 Person Tent">3 Person Tent</span></li>
-                    <li className="cat-filter"><span className="filter-link" onClick={this.onCatgoryFilterUpdate} value="4 Person Tent">4 Person Tent</span></li>
+                    {categories}
                 </ul>
             </div>
         );
