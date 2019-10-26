@@ -12,4 +12,5 @@ export const FETCH_COLLECTION_BY_RATING = "FETCH_COLLECTION_BY_RATING";
 export const FETCH_PRODUCT = "FETCH_PRODUCT";
 
 // Cart
+export const FETCH_CART = "FETCH_CART";
 export const ADD_TO_CART = "ADD_TO_CART";

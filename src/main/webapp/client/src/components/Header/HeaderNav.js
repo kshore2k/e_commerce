@@ -21,7 +21,7 @@ class HeaderNav extends Component {
                         <Link to="/login" id="login-link">
                             <img id="user-icon" src={userIcon} alt="user"/>
                         </Link>
-                        <Link to="" id="cart-link">
+                        <Link to="/cart" id="cart-link">
                             <img id="cart-icon" src={cartIcon} alt="cart"/>
                         </Link>
                     </div>

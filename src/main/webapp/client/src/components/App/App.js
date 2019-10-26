@@ -11,6 +11,7 @@ import Login from '../User/Login/Login';
 import Registration from '../User/Registration/Registration';
 import Collection from '../Product/Collection/Collection';
 import ProductDetail from '../Product/Detail/ProductDetail';
+import Cart from '../Cart/Cart';
 import UserAccount from '../User/Account/UserAccount';
 import RequireAuth from './RequireAuth';
 import Footer from '../Footer/Footer';
@@ -30,6 +31,7 @@ class App extends Component {
                         render={(props) => <Collection key={props.match.params.type} {...props} />}
                     />
                     <Route path="/collection/:type/:id" component={ProductDetail} />
+                    <Route path="/cart" component={Cart} />
                 <Footer />
                 </Router>
             </Provider>

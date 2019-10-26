@@ -1,0 +1,125 @@
+#container-main-cart {
+    /* background-color: burlywood; */
+    padding: 3% 8% 3% 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+}
+
+#container-main-cart > #nav-history {
+    align-self: flex-start;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: #007381;
+    margin-left: 4%;
+}
+
+#nav-history > #home-link {
+    color: #373737;
+}
+
+#nav-history > span {
+    color: #676767;
+}
+
+#container-sub-cart {
+    /* background-color: chocolate; */
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+}
+
+#container-sub-cart > h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    color: #373737;
+    align-self: flex-start;
+    width: 100%;
+    height: 60px;
+    margin-top: 3%;
+}
+
+#items-table {
+    border-collapse: collapse;
+}
+
+#items-table > thead {
+    background-color: #f5f5f5;
+    line-height: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    color: #373737;
+}
+
+#items-table > thead > tr > th:first-child {
+    padding-left: 10px;
+    text-align: left;
+    font-weight: normal !important;
+}
+
+#items-table > thead > tr > th:not(:first-child) {
+    width: 10%;
+    font-weight: normal !important;
+}
+
+.cart-item {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: #373737;
+    border-bottom: 3px solid #f5f5f5;
+}
+
+.cart-item-img {
+    height: 200px;
+    width: auto;
+}
+
+.cart-item-title {
+    display: inline-block;
+    vertical-align: top;
+    padding: 50px;
+}
+
+.cart-item > td:not(:first-child) {
+    vertical-align: top;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.cart-item-quantity {
+    height: 30px;
+    width: 40px;
+    font-size: 15px;
+    color: #3f3f3f;
+    margin-top: -10px;
+    margin-right: 5px;
+}
+
+.remove-item-btn {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.remove-item-btn:hover {
+    background-color: rgb(243, 125, 125);
+}
+
+#cart-price-total {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: rgb(26, 26, 26);
+    align-self: flex-end;
+    padding-top: 20px;
+}
+
+#cart-price-total > span {
+    font-weight: normal;
+    padding-left: 20px;
+}
+

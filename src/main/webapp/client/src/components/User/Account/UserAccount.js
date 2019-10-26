@@ -37,12 +37,10 @@ class UserAccount extends Component {
                             />
                         </div>
                     </div>
-                    
                 </div>
-    
-                
+                    
             </div>
-        )
+        );
     };
     
 };

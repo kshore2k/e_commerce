@@ -1,4 +1,15 @@
-import { ADD_TO_CART } from './types';
+import { FETCH_CART, ADD_TO_CART } from './types';
+
+export const fetchCart = cartId => dispatch => {
+    fetch(`/api/carts/${cartId}`)
+        .then(res => res.json())
+        .then(cart => 
+            dispatch({
+                type: FETCH_CART,
+                payload: cart
+            })
+        )
+};
 
 export const addToCart = (cartID, productId) => dispatch => {
     fetch(`/api/carts/${cartID}`, {

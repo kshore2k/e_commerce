@@ -13,9 +13,9 @@ class AddToCart extends Component {
 
     addProductToCart = (event) => {
         event.preventDefault();
+        
         this.props.addToCart(this.props.cartId, this.props.product.id);
-        console.log("Added")
-    }
+    };
 
     render() {
         return (
