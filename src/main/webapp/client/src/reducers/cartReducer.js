@@ -1,4 +1,4 @@
-import { FETCH_CART, ADD_TO_CART } from '../actions/types';
+import { FETCH_CART, ADD_TO_CART, REMOVE_FROM_CART } from '../actions/types';
 
 const initialState = {
     details: {}
@@ -12,6 +12,11 @@ export default function(state = initialState, action) {
                 details: action.payload
         };
         case ADD_TO_CART:
+            return {
+                ...state,
+                details: action.payload
+        };
+        case REMOVE_FROM_CART:
             return {
                 ...state,
                 details: action.payload

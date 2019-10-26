@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchCart } from '../../actions/cartActions';
+import { fetchCart, removeFromCart } from '../../actions/cartActions';
 import './styles/Cart.css';
 
 class Cart extends Component {
@@ -12,6 +12,16 @@ class Cart extends Component {
 
     fetchUserCart = () => {
         this.props.fetchCart(this.props.cartId);
+    };
+
+    removeItemFromCart = (event) => {
+        event.preventDefault();
+
+        const { target } = event;
+        const cartId = this.props.cartId;
+        const productId = target.getAttribute("productid");
+
+        this.props.removeFromCart(cartId, productId);
     };
 
     mapProductsToTable = () => {
@@ -30,19 +40,28 @@ class Cart extends Component {
                             <option>4</option>
                             <option>5</option>
                         </select>
-                        <button className="remove-item-btn">✖</button>
+                        <button 
+                            className="remove-item-btn" 
+                            onClick={this.removeItemFromCart}
+                            productid={product.id}
+                        >✖</button>
                     </td>
                     <td>{product.price}</td>
                     <td>{product.price}</td>
                 </tr>
             );
         });
-        return cartProducts;
+        
+        if (cartProducts.length) {
+            return cartProducts;
+        } else {
+            return <tr><td>empty cart</td></tr>;
+        }
     };
 
     calculatePriceTotal = () => {
         let prices = this.props.cart.products.map(product => product.price);
-        return prices.reduce((total, price) => total + price).toFixed(2);
+        return prices.reduce((total, price) => total + price, 0).toFixed(2);
     };
 
     render() {
@@ -95,4 +114,9 @@ const mapStateToProps = state => ({
     cart: state.cart.details
 });
 
-export default connect(mapStateToProps, { fetchCart })(Cart);
+const actions = {
+    fetchCart,
+    removeFromCart
+};
+
+export default connect(mapStateToProps, actions)(Cart);

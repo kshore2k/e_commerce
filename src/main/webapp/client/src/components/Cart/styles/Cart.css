@@ -106,10 +106,6 @@
     cursor: pointer;
 }
 
-.remove-item-btn:hover {
-    background-color: rgb(243, 125, 125);
-}
-
 #cart-price-total {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
