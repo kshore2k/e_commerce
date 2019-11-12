@@ -10,8 +10,14 @@ class Cart extends Component {
         this.fetchUserCart();
     };
 
+    isUserLoggedIn = () => {
+        return this.props.loggedIn;
+    };
+
     fetchUserCart = () => {
-        this.props.fetchCart(this.props.cartId);
+        if (this.isUserLoggedIn()) {
+            this.props.fetchCart(this.props.cartId);
+        }
     };
 
     removeItemFromCart = (event) => {
@@ -55,7 +61,7 @@ class Cart extends Component {
         if (cartProducts.length) {
             return cartProducts;
         } else {
-            return <tr><td>empty cart</td></tr>;
+            return <tr><td id="empty-cart">empty cart</td></tr>;
         }
     };
 
@@ -110,6 +116,7 @@ class Cart extends Component {
 };
 
 const mapStateToProps = state => ({
+    loggedIn: state.user.loggedIn,
     cartId: state.user.details.cart.id,
     cart: state.cart.details
 });
