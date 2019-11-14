@@ -6,15 +6,45 @@ import StarRating from '../Product/StarRating/StarRating';
 import './styles/AddToCart.css';
 
 class AddToCart extends Component {
+    constructor(props) {
+        super(props);
 
-    componentDidMount() {
+        this.state = {
+            addedToCartMsg: ""
+        };
+    };
 
+    isUserLoggedIn = () => {
+        return this.props.isLoggedIn;
     };
 
     addProductToCart = (event) => {
         event.preventDefault();
         
-        this.props.addToCart(this.props.cartId, this.props.product.id);
+        if (this.isUserLoggedIn()) {
+            this.props.addToCart(this.props.cartId, this.props.product.id);
+
+            this.setState({
+                addedToCartMsg: "Added To Cart"
+            }, this.fadeOutAddedMsg);
+        } else {
+            document.getElementById("addedToCartMsg").classList.add("pleaseLogin");
+            this.setState({
+                addedToCartMsg: "Please Login"
+            });
+        }  
+    };
+
+    fadeOutAddedMsg = () => {
+        const addedToCartMsgEl = document.getElementById("addedToCartMsg");
+
+        if (!addedToCartMsgEl.classList.contains("show")) {
+            addedToCartMsgEl.classList.add("show");
+        }
+
+        setTimeout(() => {
+            addedToCartMsgEl.classList.remove("show"); // fade out message
+        },3000);
     };
 
     render() {
@@ -53,6 +83,7 @@ class AddToCart extends Component {
                     </select>
                     <br></br>
                     <button id="add-to-cart" onClick={this.addProductToCart}>ADD TO CART</button>
+                    <p id="addedToCartMsg" className="show">{this.state.addedToCartMsg}</p>
                 </form>
             </div>
         );
@@ -60,7 +91,8 @@ class AddToCart extends Component {
 };
 
 const mapStateToProps = state => ({
-    cartId: state.user.details.cart.id
+    cartId: state.user.details.cart.id,
+    isLoggedIn: state.user.loggedIn
 });
 
 export default connect(mapStateToProps, { addToCart })(AddToCart);
