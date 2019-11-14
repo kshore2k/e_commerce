@@ -18,7 +18,9 @@ class Collection extends Component {
     };
 
     componentDidMount() {
-        this.props.fetchCollection(this.state.type);
+        if (!this.props.categoryFilterApplied) {
+            this.props.fetchCollection(this.state.type);
+        }
     };
 
     render() {
@@ -64,7 +66,8 @@ class Collection extends Component {
 };
 
 const mapStateToProps = state => ({
-    collection: state.products.collections
+    collection: state.products.collections,
+    categoryFilterApplied: state.products.isCatFilterApplied
 });
 
 export default connect(mapStateToProps, { fetchCollection })(Collection);

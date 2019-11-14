@@ -22,17 +22,17 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <Router>
-                <HeaderNav />
-                    <Route exact path="/" component={Home} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/register" component={Registration} />
-                    <Route path="/account" component={RequireAuth(UserAccount)} />
-                    <Route exact path="/collection/:type"  
-                        render={(props) => <Collection key={props.match.params.type} {...props} />}
-                    />
-                    <Route path="/collection/:type/:id" component={ProductDetail} />
-                    <Route path="/cart" component={Cart} />
-                <Footer />
+                    <HeaderNav />
+                        <Route exact path="/" component={Home} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/register" component={Registration} />
+                        <Route path="/account" component={RequireAuth(UserAccount)} />
+                        <Route exact path="/collection/:type"  
+                            render={(props) => <Collection key={props.match.params.type} {...props} />}
+                        />
+                        <Route path="/collection/:type/:id" component={ProductDetail} />
+                        <Route path="/cart" component={Cart} />
+                    <Footer />
                 </Router>
             </Provider>
         );

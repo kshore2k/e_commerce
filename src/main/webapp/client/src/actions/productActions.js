@@ -1,4 +1,9 @@
-import { FETCH_COLLECTION, FETCH_COLLECTION_BY_PRICE, FETCH_COLLECTION_BY_RATING, FETCH_COLLECTION_BY_CATEGORY, FETCH_PRODUCT } from './types';
+import { FETCH_COLLECTION, 
+         FETCH_COLLECTION_BY_PRICE, 
+         FETCH_COLLECTION_BY_RATING, 
+         FETCH_COLLECTION_BY_CATEGORY, 
+         FETCH_PRODUCT,
+         ADD_CATEGORY_FILTER_TO_STATE } from './types';
 
 export const fetchCollection = type => dispatch => {
     fetch(`/api/products/collection/${type}`)
@@ -71,4 +76,11 @@ export const fetchProduct = itemNumber => dispatch => {
                 payload: product
             })
         )
+};
+
+export const addCategoryFilterToState = (bool, category) => dispatch => {
+    dispatch({
+        type: ADD_CATEGORY_FILTER_TO_STATE,
+        payload: { bool, category }
+    })
 };

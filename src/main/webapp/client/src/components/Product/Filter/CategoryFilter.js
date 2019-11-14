@@ -12,6 +12,18 @@ class CategoryFilter extends Component {
         };
     };
 
+    componentDidMount() {
+        if (this.props.categoryFilterApplied) {
+            const collection = this.props.collection;
+            
+            const categoryQuery = {
+                category: this.props.categoryFilter
+            };
+
+            this.props.fetchCollectionByCategory(collection, categoryQuery);
+        }
+    };
+
     onCatgoryFilterUpdate = (event) => {
         const { target } = event;
         const category = target.getAttribute("value");
@@ -42,5 +54,10 @@ class CategoryFilter extends Component {
     };
 };
 
-export default connect(null, { fetchCollectionByCategory })(CategoryFilter);
+const mapStateToProps = state => ({
+    categoryFilterApplied: state.products.isCatFilterApplied,
+    categoryFilter: state.products.catFilter
+});
+
+export default connect(mapStateToProps, { fetchCollectionByCategory })(CategoryFilter);
 

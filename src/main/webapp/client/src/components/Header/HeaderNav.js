@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addCategoryFilterToState } from '../../actions/productActions';
 import logo from '../../static/logo-w-txt.png';
 import tentMenuImg from '../../static/tents.jpg';
 import sleepingBagMenuImg from '../../static/sleeping-bags.jpg';
@@ -10,6 +12,19 @@ import cartIcon from '../../static/cart.png'
 import './styles/HeaderNav.css';
 
 class HeaderNav extends Component {
+
+    onMainMenuClick = () => {
+        this.props.addCategoryFilterToState(false, "");
+    };
+
+    onSubMenuClick = (event) => {
+        const { target } = event;
+        const { innerHTML: category } = target;
+        const path = target.getAttribute("path");
+
+        this.props.addCategoryFilterToState(true, category);
+        this.props.history.push(`/collection/${path}`);
+    };
     
     render(){
         return (
@@ -32,50 +47,50 @@ class HeaderNav extends Component {
                     <div id="container-navigation">
                         
                         <div className="dropdown">
-                            <Link to="/collection/tents" className="link">TENTS</Link>
+                            <Link to="/collection/tents" className="link" onClick={this.onMainMenuClick}>TENTS</Link>
                             <div className="dropdown-content">
                                 <div className="dropdown-links">
-                                    <a>1 Person Tents</a>
-                                    <a>2 Person Tents</a>
-                                    <a>3 Person Tents</a>
-                                    <a>4 Person Tents</a>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="tents">1 Person Tents</span>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="tents">2 Person Tents</span>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="tents">3 Person Tents</span>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="tents">4 Person Tents</span>
                                 </div>
                                 <img className="menu-img" src={tentMenuImg} alt="Tents"/>
                             </div>
                         </div> 
 
                         <div className="dropdown">
-                            <Link to="/collection/sleeping-bags" className="link">SLEEPING BAGS</Link>
+                            <Link to="/collection/sleeping-bags" className="link" onClick={this.onMainMenuClick}>SLEEPING BAGS</Link>
                             <div className="dropdown-content">
                                 <div className="dropdown-links">
-                                    <a>Zippered Sleeping Bags</a>
-                                    <a>Zipperless Sleeping Bags</a>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="sleeping-bags">Zippered Sleeping Bags</span>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="sleeping-bags">Zipperless Sleeping Bags</span>
                                 </div>
                                 <img className="menu-img" src={sleepingBagMenuImg} alt="Sleeping Bags"/>
                             </div>
                         </div>
 
-                        <Link to="/collection/backpacks" className="link">BACKPACKS</Link> 
+                        <Link to="/collection/backpacks" className="link" onClick={this.onMainMenuClick}>BACKPACKS</Link> 
 
                         <div className="dropdown">
-                            <Link to="/collection/mens-apparel" className="link">MEN'S APPAREL</Link>
+                            <Link to="/collection/mens-apparel" className="link" onClick={this.onMainMenuClick}>MEN'S APPAREL</Link>
                             <div className="dropdown-content">
                                 <div className="dropdown-links">
-                                    <a>Men's Jackets</a>
-                                    <a>Men's Tops</a>
-                                    <a>Men's Bottoms</a>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="mens-apparel">Men's Jackets</span>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="mens-apparel">Men's Tops</span>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="mens-apparel">Men's Bottoms</span>
                                 </div>
                                 <img className="menu-img" src={mensApparelMenuImg} alt="Men's Apparel"/>
                             </div>
                         </div>
 
                         <div className="dropdown">
-                            <Link to="/collection/womens-apparel" className="link">WOMEN'S APPAREL</Link>
+                            <Link to="/collection/womens-apparel" className="link" onClick={this.onMainMenuClick}>WOMEN'S APPAREL</Link>
                             <div className="dropdown-content">
                                 <div className="dropdown-links">
-                                    <a>Women's Jackets</a>
-                                    <a>Women's Tops</a>
-                                    <a>Women's Bottoms</a>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="womens-apparel">Women's Jackets</span>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="womens-apparel">Women's Tops</span>
+                                    <span onClick={this.onSubMenuClick} className="category-link" path="womens-apparel">Women's Bottoms</span>
                                 </div>
                                 <img className="menu-img" src={womensApparelMenuImg} alt="Women's Apparel"/>
                             </div>
@@ -94,4 +109,4 @@ class HeaderNav extends Component {
     
 };
 
-export default HeaderNav;
+export default connect(null, { addCategoryFilterToState })(withRouter(HeaderNav));
