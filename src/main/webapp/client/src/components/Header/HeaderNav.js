@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../static/logo-w-txt.png';
+import tentMenuImg from '../../static/tents.jpg';
+import sleepingBagMenuImg from '../../static/sleeping-bags.jpg';
+import mensApparelMenuImg from '../../static/mens-apparel.jpg';
+import womensApparelMenuImg from '../../static/womens-apparel.jpg';
 import userIcon from '../../static/user.png';
 import cartIcon from '../../static/cart.png'
 import './styles/HeaderNav.css';
@@ -26,12 +30,57 @@ class HeaderNav extends Component {
                         </Link>
                     </div>
                     <div id="container-navigation">
-                        <Link to="/collection/tents" className="link">TENTS</Link>
-                        <Link to="/collection/sleeping-bags" className="link">SLEEPING BAGS</Link>
-                        <Link to="/collection/backpacks" className="link">BACKPACKS</Link>
-                        <Link to="/collection/mens-apparel" className="link">MEN'S APPAREL</Link>
-                        <Link to="/collection/womens-apparel" className="link">WOMEN'S APPAREL</Link>
-                        <Link to="/collection/" className="link">COLLECTIONS</Link>
+                        
+                        <div className="dropdown">
+                            <Link to="/collection/tents" className="link">TENTS</Link>
+                            <div className="dropdown-content">
+                                <div className="dropdown-links">
+                                    <a>1 Person Tents</a>
+                                    <a>2 Person Tents</a>
+                                    <a>3 Person Tents</a>
+                                    <a>4 Person Tents</a>
+                                </div>
+                                <img className="menu-img" src={tentMenuImg} alt="Tents"/>
+                            </div>
+                        </div> 
+
+                        <div className="dropdown">
+                            <Link to="/collection/sleeping-bags" className="link">SLEEPING BAGS</Link>
+                            <div className="dropdown-content">
+                                <div className="dropdown-links">
+                                    <a>Zippered Sleeping Bags</a>
+                                    <a>Zipperless Sleeping Bags</a>
+                                </div>
+                                <img className="menu-img" src={sleepingBagMenuImg} alt="Sleeping Bags"/>
+                            </div>
+                        </div>
+
+                        <Link to="/collection/backpacks" className="link">BACKPACKS</Link> 
+
+                        <div className="dropdown">
+                            <Link to="/collection/mens-apparel" className="link">MEN'S APPAREL</Link>
+                            <div className="dropdown-content">
+                                <div className="dropdown-links">
+                                    <a>Men's Jackets</a>
+                                    <a>Men's Tops</a>
+                                    <a>Men's Bottoms</a>
+                                </div>
+                                <img className="menu-img" src={mensApparelMenuImg} alt="Men's Apparel"/>
+                            </div>
+                        </div>
+
+                        <div className="dropdown">
+                            <Link to="/collection/womens-apparel" className="link">WOMEN'S APPAREL</Link>
+                            <div className="dropdown-content">
+                                <div className="dropdown-links">
+                                    <a>Women's Jackets</a>
+                                    <a>Women's Tops</a>
+                                    <a>Women's Bottoms</a>
+                                </div>
+                                <img className="menu-img" src={womensApparelMenuImg} alt="Women's Apparel"/>
+                            </div>
+                        </div>
+                        
                         <Link to="" className="link">ABOUT US</Link>
 
                         <form id="search-bar">
