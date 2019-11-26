@@ -61,7 +61,7 @@ class Cart extends Component {
         if (cartProducts.length) {
             return cartProducts;
         } else {
-            return <tr><td id="empty-cart">empty cart</td></tr>;
+            return <tr><td className="empty-cart">Empty Cart</td></tr>;
         }
     };
 
@@ -84,6 +84,39 @@ class Cart extends Component {
                     </p>
 
                     <div id="container-sub-cart">
+                        <h1>YOUR SHOPPING CART</h1>
+                        <table id="items-table">
+                            <thead>
+                                <tr>
+                                    <th>CART ITEMS</th>
+                                    <th>QUANTITY</th>
+                                    <th>ITEM PRICE</th>
+                                    <th>ITEM TOTAL</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                {cartProducts}
+                            </tbody>
+                            
+                        </table>
+                        
+                        <p id="cart-price-total">
+                            GRAND TOTAL: 
+                            <span>{totalPrice}</span>
+                        </p>
+                    </div>
+                </div>
+            );
+        }
+        return (
+            <div id="container-main-cart">
+                <p id="nav-history">
+                    <Link to="/" id="home-link">HOME</Link>
+                    <span> ></span> SHOPPING CART
+                </p>
+
+                <div id="container-sub-cart">
                     <h1>YOUR SHOPPING CART</h1>
                     <table id="items-table">
                         <thead>
@@ -96,22 +129,15 @@ class Cart extends Component {
                         </thead>
                         
                         <tbody>
-                            {cartProducts}
+                            <tr>
+                                <td className="empty-cart">Please Login To View Cart</td>
+                            </tr>
                         </tbody>
                         
                     </table>
-                    
-                    <p id="cart-price-total">
-                        GRAND TOTAL: 
-                        <span>{totalPrice}</span>
-                    </p>
-
-                    </div>
-                    
                 </div>
-            );
-        }
-        return <h1>Please Log In To View Your Cart</h1>;
+            </div>
+        );
     };
 };
 

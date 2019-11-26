@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 export default function(ComposedComponent) {
     class Authentication extends Component {
   
-        componentWillMount() {
-            if(!this.props.isLoggedIn) {
+        componentDidMount() {
+            if (!this.props.isLoggedIn) {
                 this.props.history.push('/login');
             }
         };
   
-        componentWillUpdate(nextProps) {
-            if(!nextProps.isLoggedIn) {
+        componentDidUpdate(nextProps) {
+            if (!nextProps.isLoggedIn) {
                 this.props.history.push('/login');
             }
         };

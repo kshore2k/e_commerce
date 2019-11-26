@@ -1,4 +1,4 @@
-import { LOGIN_USER, INVALID_USER, REGISTER_USER, EDIT_USER } from './types';
+import { LOGIN_USER, INVALID_USER, REGISTER_USER, FETCH_USER_SESSION_STATUS, EDIT_USER } from './types';
 
 export const login = userData => dispatch => {
     fetch('/api/login', {

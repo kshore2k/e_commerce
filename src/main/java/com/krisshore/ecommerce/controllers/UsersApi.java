@@ -72,10 +72,13 @@ public class UsersApi {
 		User thisUser = userService.authenticateUser(
 											email, 
 											password) ? userService.findByEmail(email) : null;
-		session.setAttribute("user_id", thisUser.getId());
+		if (thisUser != null) {
+			session.setAttribute("user_id", thisUser.getId());
+		}
+		
 		return thisUser;
 	}
-	
+		
 	// Find One
 	@RequestMapping("api/users/{id}")
 	public User find(@PathVariable("id") Long id) {
