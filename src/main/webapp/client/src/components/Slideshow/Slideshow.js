@@ -1,7 +1,9 @@
 import React, {Component } from 'react';
+import { Link } from 'react-router-dom';
 import img1 from '../../static/camp-hero1.jpg';
 import img2 from '../../static/camp-hero2.jpg';
 import img3 from '../../static/camp-hero3.jpg';
+import slideText from './slideText';
 import './styles/Slideshow.css';
 
 class Slideshow extends Component {
@@ -59,16 +61,21 @@ class Slideshow extends Component {
         if (dots[this.slideIndex-1]) {
             dots[this.slideIndex-1].className += " active";
         }
-        
     };
 
-    render() {
+    mapSlides = () => {
         const imageArr = [img1,img2,img3];
 
         const slideImages = imageArr.map((imageSrc,idx) => {
             return (
                 <div className="mySlides fade" key={idx}>
                     <img src={imageSrc} alt="Camping"/>
+                    <div className={`slide-info slide-${idx}`}>
+                        <p className="headline">{slideText[idx].headline}</p>
+                        <div></div>
+                        <p className="inspire">{slideText[idx].inspire}</p>
+                        <Link to={slideText[idx].link} className="slide-link">{slideText[idx].button}</Link>
+                    </div>
                 </div>
             );
         });
@@ -78,6 +85,12 @@ class Slideshow extends Component {
                 <span className="dot" key={idx} onClick={() => this.currentSlide(idx+1)}></span>
             );
         });
+        
+        return { slideImages, imageDots };
+    };
+
+    render() {
+        const { slideImages, imageDots } = this.mapSlides();
 
         return (
             <div className="slideshow-container">
