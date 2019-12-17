@@ -17,4 +17,5 @@ I decided to build this site for my own educational purposes only. All retail in
 - Integrate Stripe payment API
 - Sub-category dropdown menus
 ### Demo
-<video src="https://dzwonsemrish7.cloudfront.net/items/2J0M3I0A1J3B3m2w021U/Screen%20Recording%202019-12-17%20at%2001.38%20PM.mov" controls style="display: block;height: auto;width: 100%;">Screen Recording 2019-12-17 at 01.38 PM.mov</video>
+https://cl.ly/0ededd9b285f
+<a href="https://cl.ly/0ededd9b285f"><img src="./src/main/resources/static/demo.jpg"></a>
