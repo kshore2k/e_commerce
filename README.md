@@ -13,9 +13,9 @@ I decided to build this site for my own educational purposes only. All retail in
 - Items can be added/updated/deleted from the database
 - Products can be browsed by category and filtered by price & rating
 ### To-Do's
+- Strengthen authentication
 - Seperate Admin permissions
 - Integrate Stripe payment API
-- Sub-category dropdown menus
 ### Demo
 https://cl.ly/0ededd9b285f
 
