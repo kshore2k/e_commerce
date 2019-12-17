@@ -18,4 +18,4 @@ I decided to build this site for my own educational purposes only. All retail in
 - Sub-category dropdown menus
 ### Demo
 https://cl.ly/0ededd9b285f
-<a href="https://cl.ly/0ededd9b285f"><img src="./src/main/resources/static/demo.jpg"></a>
+<a href="https://cl.ly/0ededd9b285f" target="_blank"><img src="./src/main/resources/static/demo.jpg" width="500" alt="Rainier Designs"></a>
