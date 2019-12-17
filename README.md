@@ -16,15 +16,5 @@ I decided to build this site for my own educational purposes only. All retail in
 - Seperate Admin permissions
 - Integrate Stripe payment API
 - Sub-category dropdown menus
-### Screenshots
-Landing
-![alt text](./src/main/resources/static/screenshot-home.png "Ranier Designs landing page")
-
-Registration
-![alt text](./src/main/resources/static/screenshot-register.png "Ranier Designs registration page")
-
-Product
-![alt text](./src/main/resources/static/screenshot-product.png "Ranier Designs product page")
-
-Reviews
-![alt text](./src/main/resources/static/screenshot-reviews.png "Ranier Designs product reviews")
+### Demo
+https://cl.ly/0ededd9b285f
